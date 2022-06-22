@@ -12,7 +12,7 @@ function iva(x) {
 }
 
 
-let producto = prompt ("¿Qué producto va a llevar? (1, 2, o 3)")
+let producto = prompt ("Seleccione un producto (1, 2, o 3)")
 
 
 if (producto == 1) {
