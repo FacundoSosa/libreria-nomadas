@@ -1,4 +1,4 @@
-function suma(a, b) {
+/* function suma(a, b) {
     return a + b;
 }
 function resta(a, b) {
@@ -62,7 +62,7 @@ if (producto == 1) {
 
 } else {
     alert ("Ingrese 1, 2 o 3")
-}
+} */
 
 
 
