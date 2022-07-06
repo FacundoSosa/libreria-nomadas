@@ -1,69 +1,74 @@
-/* function suma(a, b) {
-    return a + b;
-}
-function resta(a, b) {
-    return a - b;
-}
-function multiplicar(a, b) {
-    return a * b;
-}
-function iva(x) {
-    return x * 1.21;
-}
 
+let opcion = prompt ("Ingrese una opción por su número: \n 1) Buscar un libro \n 2) Ver carrito \n 3) Registrarse \n 4) Catálogo")
 
-let producto = prompt ("Seleccione un producto (1, 2, o 3)")
-
-
-if (producto == 1) {
-    let precioProducto1 = 1000;
-    let descuento = 300;
-
-    let cantidadProducto1 = parseInt(prompt ("Ingrese la cantidad"));
+if (opcion == 1) {
     
-    let resultado1 = resta ((suma (multiplicar (precioProducto1, cantidadProducto1)), iva (precioProducto1)), descuento);
+    const libros = [
+    {titulo: 'cuentos completos', autor: 'edgar allan poe', precio: 1000},
+    {titulo: 'el aleph', autor: 'jorge luis borges', precio: 800},
+    {titulo: 'final del juego', autor: 'julio cortazar', precio: 1200},
+    {titulo: 'historias de cronopios y de famas', autor: 'julio cortazar', precio: 650},
+    {titulo: 'la iliada', autor: 'homero', precio: 920},
+    {titulo: 'la odisea', autor: 'homero', precio: 590},
+]
 
-    if (cantidadProducto1 > 0) {
-        alert (`Precio Total: ${resultado1}`);
-    } else {
-        alert ("Ingresa una cantidad mayor a 0");
+    let busqueda = prompt("Buscar por titulo").toLowerCase()
+
+    const resultado = libros.find((el) => el.titulo == busqueda)
+    alert("Tenemos ese libro, su precio es $" + resultado.precio);
+
+} else if (opcion == 2) {
+
+    const compra = [
+        {titulo: 'historias de cronopios y de famas', autor: 'julio cortazar', precio: 650},
+        {titulo: 'cuentos completos', autor: 'edgar allan poe', precio: 1000},
+        {titulo: 'la odisea', autor: 'homero', precio: 590}
+    ]
+
+    const total = compra.reduce ((acc, el) => acc + el.precio, 0)
+    alert ("El precio final de su compra es: " + total)
+ 
+} else if (opcion == 3) {
+    
+
+    class Usuario {
+        constructor(nombre, email, contraseña){
+            this.nombre = nombre.toLowerCase();
+            this.email = email;
+            this.contraseña = contraseña;
+        }
     }
-         
-
-} else if (producto == 2) {
-
-    let precioProducto2 = 800;
-    let descuento = 300;
     
-    let cantidadProducto2 = parseInt(prompt ("Ingrese la cantidad"));
+    const usuarios = [];
     
-    let resultado2 = resta ((suma (multiplicar (precioProducto2, cantidadProducto2)), iva (precioProducto2)), descuento);
-
-    if (cantidadProducto2 > 0) {
-        alert (`Precio Total: ${resultado2}`);
-    } else {
-        alert ("Ingresa una cantidad mayor a 0");
-    } 
-
-} else if (producto == 3) {
-
-    let precioProducto3 = 1200;
-    let descuento = 300;
+    let nombreIngresado = prompt ("Ingrese su nombre")
+    let emailIngresado = prompt ("Ingrese su email")
+    let contraseñaIngresada = prompt ("Ingrese su contraseña")
     
-    let cantidadProducto3 = parseInt(prompt ("Ingrese la cantidad"));
+    usuarios.push(new Usuario(nombreIngresado, emailIngresado, contraseñaIngresada));
     
-    let resultado3 = resta ((suma (multiplicar (precioProducto3, cantidadProducto3)), iva (precioProducto3)), descuento);
+    alert("Usuario registrado correctamente")
 
-    if (cantidadProducto3 > 0) {
-        alert (`Precio Total: ${resultado3}`);
-    } else {
-        alert ("Ingresa una cantidad mayor a 0");
-    } 
 
+} else if (opcion == 4) {
+    
+    const libros = [
+        {titulo: 'cuentos completos', autor: 'edgar allan poe', precio: 1000},
+        {titulo: 'el aleph', autor: 'jorge luis borges', precio: 800},
+        {titulo: 'final del juego', autor: 'julio cortazar', precio: 1200},
+        {titulo: 'historias de cronopios y de famas', autor: 'julio cortazar', precio: 650},
+        {titulo: 'la iliada', autor: 'homero', precio: 920},
+        {titulo: 'la odisea', autor: 'homero', precio: 590},
+    ]
+    
+    
+    const catalogo = libros.map ((el) => el.titulo)
+    
+    alert(`Este es nuestro catálogo: ${catalogo}`);
+    
 } else {
-    alert ("Ingrese 1, 2 o 3")
-} */
-
+    alert ("Ingrese un número")
+}
 
 
 
