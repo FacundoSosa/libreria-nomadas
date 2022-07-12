@@ -70,7 +70,7 @@
   justify-content: space-evenly;
   align-items: flex-end; }
 
-#libros-recomendados {
+#s2-index {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -78,8 +78,9 @@
   padding: 80px; }
 
 .libros-wrapper {
-  display: flex;
-  flex-direction: row; }
+  display: grid;
+  grid-template-columns: repeat(6, 120px);
+  grid-column-gap: 80px; }
 
 .libros-container {
   margin-right: 40px;
@@ -99,9 +100,6 @@ body {
   padding: 0%;
   background-color: #FBFBFB;
   font-family: 'Gentium Book Plus', serif; }
-
-p {
-  margin: 0%; }
 
 .links {
   text-decoration: none;

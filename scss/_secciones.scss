@@ -98,7 +98,7 @@
 
 
 
-#libros-recomendados {
+#s2-index {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -108,8 +108,9 @@
 }
 
 .libros-wrapper {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(6, 120px);
+    grid-column-gap: 80px;
 }
 
 .libros-container {
