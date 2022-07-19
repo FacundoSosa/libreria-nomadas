@@ -94,6 +94,22 @@
   width: 120px;
   height: 180px; }
 
+.libroPortadaEnCarrito {
+  width: 80px;
+  height: 110px; }
+
+.libroEnCarrito {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px; }
+
+.container-ofcanvas {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between; }
+
 /* =========== ESTILOS GENERALES =========== */
 body {
   margin: 0%;
@@ -104,6 +120,9 @@ body {
 .links {
   text-decoration: none;
   color: #C36A2D; }
+
+.titulo-header {
+  margin: 0%; }
 
 .titulos-secciones {
   margin-top: 0%;
@@ -121,6 +140,9 @@ body {
   text-align: center;
   text-decoration: none;
   color: #000; }
+
+.titulo-libro_en-carrito {
+  font-size: 16px; }
 
 /* ========== TEXTOS ============ */
 .textos-home {

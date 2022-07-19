@@ -128,3 +128,24 @@
     width: 120px;
     height: 180px;
 }
+
+.libroPortadaEnCarrito {
+    width: 80px;
+    height: 110px;
+}
+
+.libroEnCarrito {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 24px;
+}
+
+.container-ofcanvas {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}

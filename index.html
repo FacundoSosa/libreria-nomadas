@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
     <!-- Link a mi css -->
     <link rel="stylesheet" href="css/styles.css">
@@ -27,14 +27,14 @@
 </head>
 <body>
 
-    <!-- <header id="header">
+    <header id="header">
 
         <div class="header-container-1">
             <div class="logo">
                 <a href=""><img src="img/iconos/feather.svg" alt="logo.svg"></a>
                 
                 <div class="header-container-2">
-                    <h1>LIBRERÍA NÓMADAS</h1>
+                    <h1 class="titulo-header">LIBRERÍA NÓMADAS</h1>
                     <p>VENDÉS, COMPRÁS Y CANJEÁS</p>
                 </div>
             </div>
@@ -50,12 +50,33 @@
 
             <div>
                 <a href=""><img src="img/iconos/cuenta.svg" alt=""></a>
-                <a class="links-header" href="">MI CUENTA</a>
+                <input type="button" value="REGISTRARSE" id="registrarseBoton">
             </div>
 
             <div class="carrito">
-                <a href=""><img src="img/iconos/bag.svg" alt=""></a>
-                <a class="links-header" href="">MIS COMPRAS</a>
+                
+                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><img src="img/iconos/bag.svg" alt=""></button>
+
+                <span id="contadorCarrito">0</span>
+
+                <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">AQUÍ ESTÁN TUS COMPRAS</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+
+                    <div class="offcanvas-body container-ofcanvas" >
+                        <div id="carrito">
+                            <p>Todavía no hay nada aquí</p>
+                        </div>
+                        
+                        <div>
+                            <p id="precioTotal"></p>
+                        </div>
+                    </div>
+                </div>
+
+                
             </div>
         </div>
 
@@ -68,98 +89,25 @@
                 <li class="nav-items"><a class="nav-items" href="">BLOG</a></li>
             </ul>
         </nav>
-    </header> -->
+    </header>
 
     <main>
-        <!-- <section id="home">
-                <h6 class="titulo-home">UN LIBRO ES UN PUENTE</h6>
+        <section id="home">
+                <!-- <h6 class="titulo-home">UN LIBRO ES UN PUENTE</h6>
 
                 <div class="home-container">
                     <p class="textos-home">DESCUENTOS</p>
                     <p class="textos-home">OFERTAS</p>
                     <p class="textos-home">SORTEOS</p>
-                </div>
-        </section> -->
+                </div> -->
+        </section>
 
-        <h5>REGISTRARSE</h5>
+        <div id="miCuenta"></div>
 
-        <form action="" id="formulario">
-            <input type="text" placeholder="Ingrese su nombre">
-            <input type="email" placeholder="E-mail">
-            <input type="password" placeholder="Contraseña">
-            <input type="submit" value="Enviar">
-        </form>
-
-        <h5>INGRESE CUANTO TIENE PARA GASTAR</h5>
-
-        <div>
-            <input type="button" value="Hasta $400" id="filtro1">
-            <input type="button" value="Hasta $800" id="filtro2">
-            <input type="button" value="Hasta $1200" id="filtro3">
-        </div>
+        
 
 
         <section id="s2-index">
-
-            
-
-            <div >
-                <!-- <div class="libros-container">
-                    <a href=""><img class="libros-portadas" src="img/libros-portadas/portada-eap.jpg" alt=""></a>
-                    <a href="" class="titulos-libros"><h3 class="titulos-libros">CUENTOS COMPLETOS</h3></a>
-                    <p>$1000</p>
-
-                    <a href="" class="botones-comprar">COMPRAR</a>
-                </div> -->
-
-                <!-- <div class="libros-container">
-                    <a href=""><img class="libros-portadas" src="img/libros-portadas/portada-eap.jpg" alt=""></a>
-                    <a href="" class="titulos-libros"><h3 class="titulos-libros">CUENTOS COMPLETOS</h3></a>
-                    <p>$1000</p>
-
-                    <a href="" class="botones-comprar">COMPRAR</a>
-                </div> -->
-
-                <!-- <div class="libros-container">
-                    <a href=""><img class="libros-portadas" src="img/libros-portadas/portada-el-aleph.png" alt=""></a>
-                    <a href="" class="titulos-libros"><h3 class="titulos-libros">EL ALEPH</h3></a>
-                    <p>$800</p>
-
-                    <a href="" class="botones-comprar">COMPRAR</a>
-                </div>
-
-                <div class="libros-container">
-                    <a href=""><img class="libros-portadas" src="img/libros-portadas/portada-final-del-juego.jpg" alt=""></a>
-                    <a href="" class="titulos-libros"><h3 class="titulos-libros">FINAL DEL JUEGO</h3></a>
-                    <p>$1200</p>
-
-                    <a href="" class="botones-comprar">COMPRAR</a>
-                </div>
-
-                <div class="libros-container">
-                    <a href=""><img class="libros-portadas" src="img/libros-portadas/portada-hcyf.jpg" alt=""></a>
-                    <a href="" class="titulos-libros"><h3 class="titulos-libros">HISTORIAS DE CORNOPIOS Y DE FAMAS</h3></a>
-                    <p>$650</p>
-
-                    <a href="" class="botones-comprar">COMPRAR</a>
-                </div>
-
-                <div class="libros-container">
-                    <a href=""><img class="libros-portadas" src="img/libros-portadas/portada-la-iliada.jpg" alt=""></a>
-                    <a href="" class="titulos-libros"><h3 class="titulos-libros">LA ILÍADA</h3></a>
-                    <p>$920</p>
-
-                    <a href="" class="botones-comprar">COMPRAR</a>
-                </div>
-
-                <div class="libros-container">
-                    <a href=""><img class="libros-portadas" src="img/libros-portadas/portada-la-odisea.png" alt=""></a>
-                    <a href="" class="titulos-libros"><h3 class="titulos-libros">LA ODISEA</h3></a>
-                    <p>$590</p>
-
-                    <a href="" class="botones-comprar">COMPRAR</a>
-                </div> -->
-            </div>
 
             <div class="lineas"></div>
 
@@ -170,13 +118,15 @@
             <div id="librosRecomendados" class="libros-wrapper"></div>
 
         </section>
+
+        
     </main>
 
     
 
 
     <!-- JavaScript Bundle with Popper -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="./index.js"></script>
 </body>
 </html>

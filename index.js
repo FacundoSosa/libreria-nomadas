@@ -1,172 +1,185 @@
 
-/* let opcion = prompt ("Ingrese una opción por su número: \n 1) Buscar un libro \n 2) Ver carrito \n 3) Registrarse \n 4) Catálogo")
-
-if (opcion == 1) {
-    
-    const libros = [
-    {titulo: 'cuentos completos', autor: 'edgar allan poe', precio: 1000},
-    {titulo: 'el aleph', autor: 'jorge luis borges', precio: 800},
-    {titulo: 'final del juego', autor: 'julio cortazar', precio: 1200},
-    {titulo: 'historias de cronopios y de famas', autor: 'julio cortazar', precio: 650},
-    {titulo: 'la iliada', autor: 'homero', precio: 920},
-    {titulo: 'la odisea', autor: 'homero', precio: 590},
-]
-
-    let busqueda = prompt("Buscar por titulo").toLowerCase()
-
-    const resultado = libros.find((el) => el.titulo == busqueda)
-    alert("Tenemos ese libro, su precio es $" + resultado.precio);
-
-} else if (opcion == 2) {
-
-    const compra = [
-        {titulo: 'historias de cronopios y de famas', autor: 'julio cortazar', precio: 650},
-        {titulo: 'cuentos completos', autor: 'edgar allan poe', precio: 1000},
-        {titulo: 'la odisea', autor: 'homero', precio: 590}
-    ]
-
-    const total = compra.reduce ((acc, el) => acc + el.precio, 0)
-    alert ("El precio final de su compra es: " + total)
- 
-} else if (opcion == 3) {
-    
-
-    class Usuario {
-        constructor(nombre, email, contraseña){
-            this.nombre = nombre.toLowerCase();
-            this.email = email;
-            this.contraseña = contraseña;
-        }
-    }
-    
-    const usuarios = [];
-    
-    let nombreIngresado = prompt ("Ingrese su nombre")
-    let emailIngresado = prompt ("Ingrese su email")
-    let contraseñaIngresada = prompt ("Ingrese su contraseña")
-    
-    usuarios.push(new Usuario(nombreIngresado, emailIngresado, contraseñaIngresada));
-    
-    alert("Usuario registrado correctamente")
-
-
-} else if (opcion == 4) {
-    
-    const libros = [
-        {titulo: 'cuentos completos', autor: 'edgar allan poe', precio: 1000},
-        {titulo: 'el aleph', autor: 'jorge luis borges', precio: 800},
-        {titulo: 'final del juego', autor: 'julio cortazar', precio: 1200},
-        {titulo: 'historias de cronopios y de famas', autor: 'julio cortazar', precio: 650},
-        {titulo: 'la iliada', autor: 'homero', precio: 920},
-        {titulo: 'la odisea', autor: 'homero', precio: 590},
-    ]
-    
-    const catalogo = libros.map ((el) => el.titulo)
-    
-    alert(`Este es nuestro catálogo: ${catalogo}`);
-    
-} else {
-    alert ("Ingrese un número")
-} */
-
-/* function respuestaFiltro() {
-    filtrados = libros.filter(el => el.precio <= filtro)  
-
-    for (const libro of filtrados) {
-        let librosContainer = document.createElement("div");
-    
-        librosContainer.innerHTML = `<a href=""><img class="libros-portadas" src=${libro.img}></a>
-                                     <h3>${libro.titulo}</h3>   
-                                     <p>$${libro.precio}</p>   
-                                     <input class="botones-comprar" type="button" value="COMPRAR">`;
-    
-        librosRecomendados.append(librosContainer);                           
-    }
-} */
-
-
-
+/* ============= FUNCIONES ================ */
 
 function validarFormulario (e) {
         e.preventDefault();
-        alert("Usuario registrado correctamente")
+      
 }
 
-function respuestaFiltro1() {
-    filtrados = libros.filter(el => el.precio <= 400)
 
-    for (const libro of filtrados) {
-        let librosContainer = document.createElement("div");
+
+function respuestaRegistrarse() {
     
-        librosContainer.innerHTML = `<a href=""><img class="libros-portadas" src=${libro.img}></a>
-                                     <h3>${libro.titulo}</h3>   
-                                     <p>$${libro.precio}</p>   
-                                     <input class="botones-comprar" type="button" value="COMPRAR">`;
+    let miCuenta = document.getElementById("miCuenta");
+
+    let formularioContainer = document.createElement("div")
+
+    formularioContainer.innerHTML = `<h5>REGISTRARSE</h5>
     
-        librosRecomendados.append(librosContainer);                           
+                                    <form id="miCuentaForm">
+                                        <input type="text" placeholder="Ingrese su nombre" id="nombreIngresar">
+                                        <input type="email" placeholder="E-mail" id="emailIngresar">
+                                        <input type="password" placeholder="Contraseña" id="contrasenaIngresar">
+                                        <input type="submit" value="REGISTRARSE">
+                                    </form>
+                                    
+                                    <input type="button" value="X" id="botonCerrar">`;
+
+    miCuenta.append(formularioContainer)
+}
+
+
+
+
+function agregarAlCarro(libroId) {
+    
+    const libroSeleccionado = libros.find((element) => element.id === libroId);
+
+    carritoArr.push(libroSeleccionado);
+    actualizarCarro();
+     
+ }
+
+
+ function eliminarDelCarro(libroId) {
+
+    const libroSeleccionado = carritoArr.find((el) => el.id === libroId);
+
+    const indice = carritoArr.indexOf(libroSeleccionado);
+    
+    carritoArr.splice(indice, 1);
+    actualizarCarro();
+    
+}
+
+
+
+function actualizarCarro() { 
+
+    let carritoContainer = document.getElementById("carrito");
+
+    carritoContainer.innerHTML = ""
+    
+    for (const libro of carritoArr) {
+        let div = document.createElement("div");
+        div.className = ("libroEnCarrito")
+
+        div.innerHTML = `<a href=""><img class="libroPortadaEnCarrito" src=${libro.img}></a>
+                            <div>
+                                <h3 class="titulo-libro_en-carrito">${libro.titulo}</h3> 
+                                <h5 class="autor-libro_en-carrito">${libro.autor}</h5>  
+                                <p class="precio-libro_en-carrito">$${libro.precio}</p>
+                                <p>Cantidad: ${libro.cantidad}</p>
+                                <p>${libro.condicion} </p>
+                            </div>
+                        <button id="botonEliminar-${libro.id}">BORRAR</button>`;
+
+        carritoContainer.append(div);
+
+        localStorage.setItem("carritoArr", JSON.stringify(carritoArr));
+
+        let botonEliminar = document.getElementById(`botonEliminar-${libro.id}`);
+
+        botonEliminar.addEventListener("click", () => {
+            eliminarDelCarro(libro.id)
+        });
+
+        
     }
+
+    contadorCarrito.innerText = carritoArr.length;
+    precioTotal.innerText = "Precio Final: " + carritoArr.reduce((acc, libro) => acc + libro.precio, 0);
+
 }
 
-function respuestaFiltro2() {
-    filtrados = libros.filter(el => el.precio <= 800)
 
-    for (const libro of filtrados) {
-        let librosContainer = document.createElement("div");
-    
-        librosContainer.innerHTML = `<a href=""><img class="libros-portadas" src=${libro.img}></a>
-                                     <h3>${libro.titulo}</h3>   
-                                     <p>$${libro.precio}</p>   
-                                     <input class="botones-comprar" type="button" value="COMPRAR">`;
-    
-        librosRecomendados.append(librosContainer);                           
-    }
-}
 
-function respuestaFiltro3() {
-    filtrados = libros.filter(el => el.precio <= 1200)
 
-    for (const libro of filtrados) {
-        let librosContainer = document.createElement("div");
-    
-        librosContainer.innerHTML = `<a href=""><img class="libros-portadas" src=${libro.img}></a>
-                                     <h3>${libro.titulo}</h3>   
-                                     <p>$${libro.precio}</p>   
-                                     <input class="botones-comprar" type="button" value="COMPRAR">`;
-    
-        librosRecomendados.append(librosContainer);                           
-    }
-}
+/* ============= ARRAY CON CADA LIBRO ================ */
+
+
+
 
 const libros = [
-    {titulo: 'CUENTOS COMPLETOS', autor: 'edgar allan poe', precio: 1200, condicion: "nuevo", img: "img/libros-portadas/portada-eap.jpg"},
-    {titulo: 'EL ALEPH', autor: 'jorge luis borges', precio: 110, condicion: "nuevo", img: "img/libros-portadas/portada-el-aleph.png"},
-    {titulo: 'FINAL DEL JUEGO', autor: 'julio cortazar', precio: 460, condicion: "usado", img: "img/libros-portadas/portada-final-del-juego.jpg"},
-    {titulo: 'HISTORIAS DE CRONOPIOS Y DE FAMAS', autor: 'julio cortazar', precio: 320, condicion: "usado", img: "img/libros-portadas/portada-hcyf.jpg"},
-    {titulo: 'LA ILIADA', autor: 'homero', precio: 920, condicion: "nuevo", img: "img/libros-portadas/portada-la-iliada.jpg"},
-    {titulo: 'LA ODISEA', autor: 'homero', precio: 800, condicion: "nuevo", img: "img/libros-portadas/portada-la-odisea.png"},
+    {id: 1, titulo: 'CUENTOS COMPLETOS', autor: 'EDGAR ALLAN POE', precio: 1200, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-eap.jpg"},
+    {id: 2, titulo: 'EL ALEPH', autor: 'JORGE LUIS BORGES', precio: 110, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-el-aleph.png"},
+    {id: 3, titulo: 'FINAL DEL JUEGO', autor: 'JULIO CORTÁZAR', precio: 460, cantidad: 1, condicion: "Usado", img: "img/libros-portadas/portada-final-del-juego.jpg"},
+    {id: 4, titulo: 'HISTORIAS DE CRONOPIOS Y DE FAMAS', autor: 'JULIO CORTÁZAR', precio: 320, cantidad: 1, condicion: "Usado", img: "img/libros-portadas/portada-hcyf.jpg"},
+    {id: 5, titulo: 'LA ILIADA', autor: 'HOMERO', precio: 920, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-la-iliada.jpg"},
+    {id: 6, titulo: 'LA ODISEA', autor: 'HOMERO', precio: 800, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-la-odisea.png"},
 ];
 
 
-let librosRecomendados = document.getElementById("librosRecomendados");
-
-const filtro1 = document.getElementById("filtro1")
-filtro1.addEventListener("click", respuestaFiltro1)
-
-const filtro2 = document.getElementById("filtro2")
-filtro2.addEventListener("click", respuestaFiltro2)
-
-const filtro3 = document.getElementById("filtro3")
-filtro3.addEventListener("click", respuestaFiltro3)
+/* ============== PRODUCTOS EN EL DOM =============== */
 
 
-let formulario = document.getElementById("formulario")
-
-formulario.addEventListener("submit", validarFormulario)
-
-
+const librosRecomendados = document.getElementById("librosRecomendados");
+const contadorCarrito = document.getElementById("contadorCarrito");
+const precioTotal = document.getElementById("precioTotal");
 
 
+let carritoArr = [];
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("carritoArr")) {
+        carritoArr = JSON.parse(localStorage.getItem("carritoArr"));
+        actualizarCarro();
+    }
+});
+
+
+
+for (const libro of libros) {
+    let libros = document.createElement("div"); 
+
+    libros.innerHTML = `<a href=""><img class="libros-portadas" src=${libro.img}></a>
+                        <h3 class="titulos-libros">${libro.titulo}</h3>   
+                        <p>$${libro.precio}</p>   
+                        <button id="botonAdd-${libro.id}" class="botonesAdd">AGREGAR</button>`;
+
+    librosRecomendados.append(libros);
+
+    let botonAdd = document.getElementById(`botonAdd-${libro.id}`);
+
+    botonAdd.addEventListener("click", () => {
+        agregarAlCarro(libro.id)
+    }); 
+
+    
+    
+}
+
+
+
+/* ============ REGISTRARSE ============ */
+
+
+
+let registrarse = document.getElementById("registrarseBoton")
+registrarse.addEventListener("click", respuestaRegistrarse)
+
+
+
+class Usuario {
+    constructor(nombre, email, contraseña){
+        this.nombre = nombre;
+        this.email = email;
+        this.contraseña = contraseña;
+    }
+}
+
+const usuarios = [];
+
+let nombreIngresado = document.getElementById("nombreIngresar");
+let emailIngresado = document.getElementById("emailIngresar");
+let contraseñaIngresada = document.getElementById("contrasenaIngresar");
+
+usuarios.push(new Usuario(nombreIngresado, emailIngresado, contraseñaIngresada));
+
+let miCuentaForm = document.getElementById("miCuentaForm")
+
+miCuenta.addEventListener("submit", validarFormulario)
 
 
 
