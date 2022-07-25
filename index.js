@@ -43,12 +43,31 @@ function agregarAlCarro(libroId) {
 
  function eliminarDelCarro(libroId) {
 
-    const libroSeleccionado = carritoArr.find((el) => el.id === libroId);
+    Swal.fire({
+        title: '¿De verdad quieres eliminarlo?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, adelante',
+        cancelButtonText: 'No, no quiero'
+      }).then((result) => {
+        if (result.isConfirmed) {
 
-    const indice = carritoArr.indexOf(libroSeleccionado);
+            const libroSeleccionado = carritoArr.find((el) => el.id === libroId);
+            const indice = carritoArr.indexOf(libroSeleccionado);
+            carritoArr.splice(indice, 1);
+            actualizarCarro();
+
+            Swal.fire(
+                'Eliminado!',
+                'Has retirado tu libro del carrito',
+                'success'
+            )
+            }
+      })
+
     
-    carritoArr.splice(indice, 1);
-    actualizarCarro();
     
 }
 
@@ -94,6 +113,26 @@ function actualizarCarro() {
 
 
 
+function finalizarCompra() {
+    if (carritoArr.length > 0) {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Gracias por comprar',
+            showConfirmButton: true
+          })
+    } else {
+        Swal.fire({
+            position: 'center',
+            icon: 'info',
+            title: 'Agrega algo al carrito antes',
+            showConfirmButton: true
+          })
+    }
+}
+
+
+
 
 /* ============= ARRAY CON CADA LIBRO ================ */
 
@@ -110,15 +149,7 @@ const libros = [
 ];
 
 
-/* ============== PRODUCTOS EN EL DOM =============== */
-
-
-const librosRecomendados = document.getElementById("librosRecomendados");
-const contadorCarrito = document.getElementById("contadorCarrito");
-const precioTotal = document.getElementById("precioTotal");
-
-
-let carritoArr = [];
+/* ============== EVENTOS ================= */
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -128,6 +159,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
+const botonFinalizarCompra = document.getElementById("botonFinalizarCompra");
+botonFinalizarCompra.addEventListener("click", finalizarCompra);
+
+
+/* ============== PRODUCTOS EN EL DOM =============== */
+
+
+const librosRecomendados = document.getElementById("librosRecomendados");
+const contadorCarrito = document.getElementById("contadorCarrito");
+const precioTotal = document.getElementById("precioTotal");
+
+
+let carritoArr = [];
 
 
 for (const libro of libros) {
