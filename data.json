@@ -1,0 +1,61 @@
+[
+    {
+        "id": 1, 
+        "titulo": "CUENTOS COMPLETOS", 
+        "autor": "EDGAR ALLAN POE", 
+        "precio": 1200, 
+        "cantidad": 1, 
+        "condicion": "Nuevo", 
+        "img": "../img/libros-portadas/portada-eap.jpg"
+    },
+
+    {
+        "id": 2, 
+        "titulo": "EL ALEPH", 
+        "autor": "JORGE LUIS BORGES", 
+        "precio": 110, 
+        "cantidad": 1, 
+        "condicion": "Nuevo", 
+        "img": "../img/libros-portadas/portada-el-aleph.png"
+    },
+
+    {
+        "id": 3, 
+        "titulo": "FINAL DEL JUEGO", 
+        "autor": "JULIO CORTÁZAR", 
+        "precio": 460, 
+        "cantidad": 1, 
+        "condicion": "Usado", 
+        "img": "../img/libros-portadas/portada-final-del-juego.jpg"
+    },
+
+    {
+        "id": 4, 
+        "titulo": "HISTORIAS DE CRONOPIOS Y DE FAMAS", 
+        "autor": "JULIO CORTÁZAR", 
+        "precio": 320, 
+        "cantidad": 1, 
+        "condicion": "Usado", 
+        "img": "../img/libros-portadas/portada-hcyf.jpg"
+    },
+
+    {
+        "id": 5, 
+        "titulo": "LA ILIADA", 
+        "autor": "HOMERO", 
+        "precio": 920, 
+        "cantidad": 1, 
+        "condicion": "Nuevo", 
+        "img": "../img/libros-portadas/portada-la-iliada.jpg"
+    },
+
+    {
+        "id": 6, 
+        "titulo": "LA ODISEA", 
+        "autor": "HOMERO", 
+        "precio": 800, 
+        "cantidad": 1, 
+        "condicion": "Nuevo", 
+        "img": "../img/libros-portadas/portada-la-odisea.png"
+    }
+]
