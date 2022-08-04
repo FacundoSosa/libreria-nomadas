@@ -29,27 +29,7 @@ function respuestaRegistrarse() {
 }
 
 
-fetch("/data.json")
-.then((response) => response.json())
-.then(data => {
-    
-    data.forEach(libro => {
-        const div = document.createElement("div")
 
-        div.innerHTML = `<a href=""><img class="libros-portadas" src=${libro.img}></a>
-            <h3 class="titulos-libros">${libro.titulo}</h3>   
-            <p>$${libro.precio}</p>   
-            <button id="botonAdd-${libro.id}" class="botonesAdd">AGREGAR</button>`;
-
-        librosRecomendados.append(div)
-
-        let botonAdd = document.getElementById(`botonAdd-${libro.id}`);
-
-        botonAdd.addEventListener("click", () => {
-            agregarAlCarro(libro.id)
-        })
-    });
-});
 
 
 
@@ -100,40 +80,37 @@ function actualizarCarro() {
 
     let carritoContainer = document.getElementById("carrito");
 
-    carritoContainer.innerHTML = ""
+    carritoContainer.innerHTML = "";
+
+    for (const libro of carritoArr) {
 
     
+        let div = document.createElement("div");
+                div.className = ("libroEnCarrito")
+        
+                div.innerHTML = `<a href=""><img class="libroPortadaEnCarrito" src=${libro.img}></a>
+                                    <div>
+                                        <h3 class="titulo-libro_en-carrito">${libro.titulo}</h3> 
+                                        <h5 class="autor-libro_en-carrito">${libro.autor}</h5>  
+                                        <p class="precio-libro_en-carrito">$${libro.precio}</p>
+                                        <p>Cantidad: ${libro.cantidad}</p>
+                                        <p>${libro.condicion} </p>
+                                    </div>
+                                <button id="botonEliminar-${libro.id}">BORRAR</button>`;
+        
+                carritoContainer.append(div);
+        
+                let botonEliminar = document.getElementById(`botonEliminar-${libro.id}`);
+        
+                botonEliminar.addEventListener("click", () => {
+                    eliminarDelCarro(libro.id)
+                });
 
-        for (const libro of carritoArr) {
-            let div = document.createElement("div");
-            div.className = ("libroEnCarrito")
-    
-            div.innerHTML = `<a href=""><img class="libroPortadaEnCarrito" src=${libro.img}></a>
-                                <div>
-                                    <h3 class="titulo-libro_en-carrito">${libro.titulo}</h3> 
-                                    <h5 class="autor-libro_en-carrito">${libro.autor}</h5>  
-                                    <p class="precio-libro_en-carrito">$${libro.precio}</p>
-                                    <p>Cantidad: ${libro.cantidad}</p>
-                                    <p>${libro.condicion} </p>
-                                </div>
-                            <button id="botonEliminar-${libro.id}">BORRAR</button>`;
-    
-            carritoContainer.append(div);
-    
-            localStorage.setItem("carritoArr", JSON.stringify(carritoArr));
-    
-            let botonEliminar = document.getElementById(`botonEliminar-${libro.id}`);
-    
-            botonEliminar.addEventListener("click", () => {
-                eliminarDelCarro(libro.id)
-            });
-    
-            
-        }
+                localStorage.setItem("carritoArr", JSON.stringify(carritoArr));
+    }
 
-   
-    
-    
+
+
 
     contadorCarrito.innerText = carritoArr.length;
     precioTotal.innerText = "Precio Final: " + carritoArr.reduce((acc, libro) => acc + libro.precio, 0);
@@ -163,6 +140,10 @@ function finalizarCompra() {
 
 
 
+
+
+
+
 /* ============= ARRAY CON CADA LIBRO ================ */
 
 
@@ -181,12 +162,9 @@ const libros = [
 /* ============== EVENTOS ================= */
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem("carritoArr")) {
-        carritoArr = JSON.parse(localStorage.getItem("carritoArr"));
-        actualizarCarro();
-    }
-});
+
+
+
 
 
 const botonFinalizarCompra = document.getElementById("botonFinalizarCompra");
@@ -204,7 +182,60 @@ const precioTotal = document.getElementById("precioTotal");
 let carritoArr = [];
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("carritoArr")) {
+        carritoArr = JSON.parse(localStorage.getItem("carritoArr"));
+        actualizarCarro();
+    }
+});
 
+
+fetch("/data.json")
+.then((response) => response.json())
+.then(data => {
+    
+    data.forEach(libro => {
+        const div = document.createElement("div")
+
+        div.innerHTML = `<a href=""><img class="libros-portadas" src=${libro.img}></a>
+            <h3 class="titulos-libros">${libro.titulo}</h3>   
+            <p>$${libro.precio}</p>   
+            <button id="botonAdd-${libro.id}" class="botonesAdd">AGREGAR</button>`;
+
+        librosRecomendados.append(div)
+
+        let botonAdd = document.getElementById(`botonAdd-${libro.id}`);
+
+        botonAdd.addEventListener("click", () => {
+            agregarAlCarro(libro.id)
+        })
+    });
+});
+
+
+
+
+
+
+
+
+
+/* for (const libro of libros) {
+    const div = document.createElement("div")
+
+        div.innerHTML = `<a href=""><img class="libros-portadas" src=${libro.img}></a>
+            <h3 class="titulos-libros">${libro.titulo}</h3>   
+            <p>$${libro.precio}</p>   
+            <button id="botonAdd-${libro.id}" class="botonesAdd">AGREGAR</button>`;
+
+        librosRecomendados.append(div)
+
+        let botonAdd = document.getElementById(`botonAdd-${libro.id}`);
+
+        botonAdd.addEventListener("click", () => {
+            agregarAlCarro(libro.id)
+        })
+} */
 
 
 

@@ -1,6 +1,7 @@
 [
     {
-        "id": 1, 
+        "id": 1,
+        "ISBN": "9788417477684", 
         "titulo": "CUENTOS COMPLETOS", 
         "autor": "EDGAR ALLAN POE", 
         "precio": 1200, 
@@ -10,7 +11,8 @@
     },
 
     {
-        "id": 2, 
+        "id": 2,
+        "ISBN": "9788499089515", 
         "titulo": "EL ALEPH", 
         "autor": "JORGE LUIS BORGES", 
         "precio": 110, 
@@ -20,7 +22,8 @@
     },
 
     {
-        "id": 3, 
+        "id": 3,
+        "ISBN": "9788466331852", 
         "titulo": "FINAL DEL JUEGO", 
         "autor": "JULIO CORTÁZAR", 
         "precio": 460, 
@@ -30,7 +33,8 @@
     },
 
     {
-        "id": 4, 
+        "id": 4,
+        "ISBN": "9788466331890", 
         "titulo": "HISTORIAS DE CRONOPIOS Y DE FAMAS", 
         "autor": "JULIO CORTÁZAR", 
         "precio": 320, 
@@ -40,7 +44,8 @@
     },
 
     {
-        "id": 5, 
+        "id": 5,
+        "ISBN": "9788476003930", 
         "titulo": "LA ILIADA", 
         "autor": "HOMERO", 
         "precio": 920, 
@@ -50,7 +55,8 @@
     },
 
     {
-        "id": 6, 
+        "id": 6,
+        "ISBN": "9788467828702", 
         "titulo": "LA ODISEA", 
         "autor": "HOMERO", 
         "precio": 800, 
