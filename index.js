@@ -37,9 +37,25 @@ function respuestaRegistrarse() {
 function agregarAlCarro(libroId) {
     
     const libroSeleccionado = libros.find((element) => element.id === libroId);
+
+    let existe = carritoArr.some((element) => element.id == libroId);
+        
+    if (existe == true) {
+         let cantidad = libroSeleccionado.cantidad;
+        let suma = 
+
+        console.log(suma);
+        console.log("existe");
+    } else {
+        console.log("no existe pero ya lo agregamos");
+        carritoArr.push(libroSeleccionado);
+        actualizarCarro();
+    }
     
-    carritoArr.push(libroSeleccionado);
-    actualizarCarro();
+
+   
+
+    
     
  }
 
@@ -56,17 +72,16 @@ function agregarAlCarro(libroId) {
         cancelButtonText: 'No, no quiero'
       }).then((result) => {
         if (result.isConfirmed) {
-
-            const libroSeleccionado = carritoArr.find((el) => el.id === libroId);
+            const libroSeleccionado = carritoArr.find((element) => element.id === libroId);
             const indice = carritoArr.indexOf(libroSeleccionado);
             carritoArr.splice(indice, 1);
             actualizarCarro();
 
-            Swal.fire(
-                'Eliminado!',
-                'Has retirado tu libro del carrito',
-                'success'
-            )
+                Swal.fire(
+                    'Eliminado!',
+                    'Has retirado tu libro del carrito',
+                    'success'
+                )
             }
       })
 
@@ -78,39 +93,36 @@ function agregarAlCarro(libroId) {
 
 function actualizarCarro() { 
 
-    let carritoContainer = document.getElementById("carrito");
-
     carritoContainer.innerHTML = "";
 
     for (const libro of carritoArr) {
 
-    
+        
+
         let div = document.createElement("div");
-                div.className = ("libroEnCarrito")
-        
-                div.innerHTML = `<a href=""><img class="libroPortadaEnCarrito" src=${libro.img}></a>
-                                    <div>
-                                        <h3 class="titulo-libro_en-carrito">${libro.titulo}</h3> 
-                                        <h5 class="autor-libro_en-carrito">${libro.autor}</h5>  
-                                        <p class="precio-libro_en-carrito">$${libro.precio}</p>
-                                        <p>Cantidad: ${libro.cantidad}</p>
-                                        <p>${libro.condicion} </p>
-                                    </div>
-                                <button id="botonEliminar-${libro.id}">BORRAR</button>`;
-        
-                carritoContainer.append(div);
-        
-                let botonEliminar = document.getElementById(`botonEliminar-${libro.id}`);
-        
-                botonEliminar.addEventListener("click", () => {
-                    eliminarDelCarro(libro.id)
-                });
+        div.className = ("libroEnCarrito")
 
-                localStorage.setItem("carritoArr", JSON.stringify(carritoArr));
+        div.innerHTML = `<a href=""><img class="libroPortadaEnCarrito" src=${libro.img}></a>
+                            <div>
+                                <h3 class="titulo-libro_en-carrito">${libro.titulo}</h3> 
+                                <h5 class="autor-libro_en-carrito">${libro.autor}</h5>  
+                                <p class="precio-libro_en-carrito">$${libro.precio}</p>
+                                <p>Cantidad: ${libro.cantidad}</p>
+                                <p>${libro.condicion} </p>
+                            </div>
+                        <button id="botonEliminar-${libro.id}">BORRAR</button>`;
+
+        carritoContainer.append(div);
+
+        localStorage.setItem("carritoArr", JSON.stringify(carritoArr));
+
+        let botonEliminar = document.getElementById(`botonEliminar-${libro.id}`);
+
+        botonEliminar.addEventListener("click", () => {
+            eliminarDelCarro(libro.id)
+        });
+          
     }
-
-
-
 
     contadorCarrito.innerText = carritoArr.length;
     precioTotal.innerText = "Precio Final: " + carritoArr.reduce((acc, libro) => acc + libro.precio, 0);
@@ -150,44 +162,16 @@ function finalizarCompra() {
 
 
 const libros = [
-    {id: 1, titulo: 'CUENTOS COMPLETOS', autor: 'EDGAR ALLAN POE', precio: 1200, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-eap.jpg"},
-    {id: 2, titulo: 'EL ALEPH', autor: 'JORGE LUIS BORGES', precio: 110, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-el-aleph.png"},
-    {id: 3, titulo: 'FINAL DEL JUEGO', autor: 'JULIO CORTÁZAR', precio: 460, cantidad: 1, condicion: "Usado", img: "img/libros-portadas/portada-final-del-juego.jpg"},
-    {id: 4, titulo: 'HISTORIAS DE CRONOPIOS Y DE FAMAS', autor: 'JULIO CORTÁZAR', precio: 320, cantidad: 1, condicion: "Usado", img: "img/libros-portadas/portada-hcyf.jpg"},
-    {id: 5, titulo: 'LA ILIADA', autor: 'HOMERO', precio: 920, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-la-iliada.jpg"},
-    {id: 6, titulo: 'LA ODISEA', autor: 'HOMERO', precio: 800, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-la-odisea.png"},
+    {id: 0, titulo: 'CUENTOS COMPLETOS', autor: 'EDGAR ALLAN POE', precio: 1200, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-eap.jpg"},
+    {id: 1, titulo: 'EL ALEPH', autor: 'JORGE LUIS BORGES', precio: 110, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-el-aleph.png"},
+    {id: 2, titulo: 'FINAL DEL JUEGO', autor: 'JULIO CORTÁZAR', precio: 460, cantidad: 1, condicion: "Usado", img: "img/libros-portadas/portada-final-del-juego.jpg"},
+    {id: 3, titulo: 'HISTORIAS DE CRONOPIOS Y DE FAMAS', autor: 'JULIO CORTÁZAR', precio: 320, cantidad: 1, condicion: "Usado", img: "img/libros-portadas/portada-hcyf.jpg"},
+    {id: 4, titulo: 'LA ILIADA', autor: 'HOMERO', precio: 920, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-la-iliada.jpg"},
+    {id: 5, titulo: 'LA ODISEA', autor: 'HOMERO', precio: 800, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-la-odisea.png"},
 ];
 
 
-/* ============== EVENTOS ================= */
-
-
-
-
-
-
-
-const botonFinalizarCompra = document.getElementById("botonFinalizarCompra");
-botonFinalizarCompra.addEventListener("click", finalizarCompra);
-
-
-/* ============== PRODUCTOS EN EL DOM =============== */
-
-
-const librosRecomendados = document.getElementById("librosRecomendados");
-const contadorCarrito = document.getElementById("contadorCarrito");
-const precioTotal = document.getElementById("precioTotal");
-
-
-let carritoArr = [];
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem("carritoArr")) {
-        carritoArr = JSON.parse(localStorage.getItem("carritoArr"));
-        actualizarCarro();
-    }
-});
+/* ============== DOM Y EVENTOS ================= */
 
 
 fetch("/data.json")
@@ -215,27 +199,25 @@ fetch("/data.json")
 
 
 
+const botonFinalizarCompra = document.getElementById("botonFinalizarCompra");
+botonFinalizarCompra.addEventListener("click", finalizarCompra);
+
+const carritoContainer = document.getElementById("carrito");
+const librosRecomendados = document.getElementById("librosRecomendados");
+const contadorCarrito = document.getElementById("contadorCarrito");
+const precioTotal = document.getElementById("precioTotal");
 
 
+let carritoArr = [];
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("carritoArr")) {
+        carritoArr = JSON.parse(localStorage.getItem("carritoArr"));
+        actualizarCarro();
+    }
+});
 
-/* for (const libro of libros) {
-    const div = document.createElement("div")
-
-        div.innerHTML = `<a href=""><img class="libros-portadas" src=${libro.img}></a>
-            <h3 class="titulos-libros">${libro.titulo}</h3>   
-            <p>$${libro.precio}</p>   
-            <button id="botonAdd-${libro.id}" class="botonesAdd">AGREGAR</button>`;
-
-        librosRecomendados.append(div)
-
-        let botonAdd = document.getElementById(`botonAdd-${libro.id}`);
-
-        botonAdd.addEventListener("click", () => {
-            agregarAlCarro(libro.id)
-        })
-} */
 
 
 

@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": 0,
         "ISBN": "9788417477684", 
         "titulo": "CUENTOS COMPLETOS", 
         "autor": "EDGAR ALLAN POE", 
@@ -11,7 +11,7 @@
     },
 
     {
-        "id": 2,
+        "id": 1,
         "ISBN": "9788499089515", 
         "titulo": "EL ALEPH", 
         "autor": "JORGE LUIS BORGES", 
@@ -22,7 +22,7 @@
     },
 
     {
-        "id": 3,
+        "id": 2,
         "ISBN": "9788466331852", 
         "titulo": "FINAL DEL JUEGO", 
         "autor": "JULIO CORTÁZAR", 
@@ -33,7 +33,7 @@
     },
 
     {
-        "id": 4,
+        "id": 3,
         "ISBN": "9788466331890", 
         "titulo": "HISTORIAS DE CRONOPIOS Y DE FAMAS", 
         "autor": "JULIO CORTÁZAR", 
@@ -44,7 +44,7 @@
     },
 
     {
-        "id": 5,
+        "id": 4,
         "ISBN": "9788476003930", 
         "titulo": "LA ILIADA", 
         "autor": "HOMERO", 
@@ -55,7 +55,7 @@
     },
 
     {
-        "id": 6,
+        "id": 5,
         "ISBN": "9788467828702", 
         "titulo": "LA ODISEA", 
         "autor": "HOMERO", 
