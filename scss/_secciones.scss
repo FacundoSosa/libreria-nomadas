@@ -108,9 +108,8 @@
 }
 
 .libros-wrapper {
-    display: grid;
-    grid-template-columns: repeat(6, 120px);
-    grid-column-gap: 80px;
+    display: flex;
+    flex-flow: row wrap;
 }
 
 .libros-container {
@@ -119,9 +118,6 @@
 
     width: 120px;
     height: 320px;
-
-    display: grid;
-    grid-template-rows: max($numbers: 4);
 }
 
 .libros-portadas {
@@ -136,7 +132,7 @@
 
 .libroEnCarrito {
     display: flex;
-    flex-direction: row;
+    flex-direction: col;
 
     justify-content: space-between;
     align-items: center;

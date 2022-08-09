@@ -78,17 +78,14 @@
   padding: 80px; }
 
 .libros-wrapper {
-  display: grid;
-  grid-template-columns: repeat(6, 120px);
-  grid-column-gap: 80px; }
+  display: flex;
+  flex-flow: row wrap; }
 
 .libros-container {
   margin-right: 40px;
   margin-left: 40px;
   width: 120px;
-  height: 320px;
-  display: grid;
-  grid-template-rows: 4; }
+  height: 320px; }
 
 .libros-portadas {
   width: 120px;
@@ -100,7 +97,7 @@
 
 .libroEnCarrito {
   display: flex;
-  flex-direction: row;
+  flex-direction: col;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px; }
@@ -160,15 +157,16 @@ body {
 
 .st-input {
   border-style: none;
+  outline: none;
   background-color: #FBFBFB;
   width: 320px;
   height: 32px;
   padding-left: 8px; }
 
-.botones-comprar {
-  text-decoration: none;
-  color: #FBFBFB;
-  background-color: #C36A2D;
-  padding: 6px 10px;
-  align-self: flex-end;
-  justify-self: flex-start; }
+.btn-cantidad {
+  padding: 8px;
+  margin: 4px;
+  border-style: none;
+  line-height: 8px;
+  border-radius: 4px;
+  font-size: 24px; }

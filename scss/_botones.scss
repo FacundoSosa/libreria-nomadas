@@ -16,6 +16,7 @@
 
 .st-input {
     border-style: none;
+    outline: none;
     background-color: $color-1;
 
     width: 320px;
@@ -24,16 +25,19 @@
     padding-left: 8px;
 }
 
+.btn-cantidad {
+    padding: 8px;
+    margin: 4px;
 
+    border-style: none;
+    line-height: 8px;
+    border-radius: 4px;
 
-.botones-comprar {
-    text-decoration: none;
-
-    color: $color-1;
-    background-color: $color-2;
-    padding: 6px 10px;
-
-    align-self: flex-end;
-    justify-self: flex-start;
+    font-size: 24px;
 }
+
+
+
+
+
 

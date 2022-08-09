@@ -36,26 +36,31 @@ function respuestaRegistrarse() {
 
 function agregarAlCarro(libroId) {
     
-    const libroSeleccionado = libros.find((element) => element.id === libroId);
-
-    let existe = carritoArr.some((element) => element.id == libroId);
+    const existe = carritoArr.some((element) => element.id === libroId);
         
     if (existe == true) {
-         let cantidad = libroSeleccionado.cantidad;
-        let suma = 
+        const cantidad = carritoArr.map(element => {
+            if (element.id === libroId) {
+                element.cantidad++
 
-        console.log(suma);
-        console.log("existe");
+                /* const precio = carritoArr.reduce((acc, element) => acc + element.precio, 0) */
+                
+            }
+
+            
+        })
+
+       
+        console.log(cantidad);
+        
     } else {
-        console.log("no existe pero ya lo agregamos");
-        carritoArr.push(libroSeleccionado);
-        actualizarCarro();
+
+        const libroSeleccionado = libros.find((element) => element.id === libroId);
+        carritoArr.push(libroSeleccionado); 
+
     }
-    
-
-   
-
-    
+     
+    actualizarCarro();
     
  }
 
@@ -107,10 +112,11 @@ function actualizarCarro() {
                                 <h3 class="titulo-libro_en-carrito">${libro.titulo}</h3> 
                                 <h5 class="autor-libro_en-carrito">${libro.autor}</h5>  
                                 <p class="precio-libro_en-carrito">$${libro.precio}</p>
-                                <p>Cantidad: ${libro.cantidad}</p>
+                                <button class="btn-cantidad bg-light" id="btnMas">+</button><span>${libro.cantidad}</span><button class="btn-cantidad bg-light" id="btnMenos">-</button>
                                 <p>${libro.condicion} </p>
                             </div>
-                        <button id="botonEliminar-${libro.id}">BORRAR</button>`;
+
+                        <button id="botonEliminar-${libro.id}" type="button" class="btn btn-light">ELIMINAR</button>`;
 
         carritoContainer.append(div);
 
@@ -179,12 +185,13 @@ fetch("/data.json")
 .then(data => {
     
     data.forEach(libro => {
-        const div = document.createElement("div")
+        const div = document.createElement("div");
+        div.className = "libros-container";
 
         div.innerHTML = `<a href=""><img class="libros-portadas" src=${libro.img}></a>
             <h3 class="titulos-libros">${libro.titulo}</h3>   
-            <p>$${libro.precio}</p>   
-            <button id="botonAdd-${libro.id}" class="botonesAdd">AGREGAR</button>`;
+            <p>$${libro.precio}</p> 
+            <button id="botonAdd-${libro.id}" type="button" class="btn btn-outline-dark">AGREGAR</button>`;
 
         librosRecomendados.append(div)
 
