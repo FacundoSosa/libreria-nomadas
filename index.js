@@ -1,6 +1,8 @@
 
 /* ============= FUNCIONES ================ */
 
+
+
 function validarFormulario (e) {
         e.preventDefault();
       
@@ -39,25 +41,30 @@ function agregarAlCarro(libroId) {
     const existe = carritoArr.some((element) => element.id === libroId);
         
     if (existe == true) {
-        const cantidad = carritoArr.map(element => {
+        const libros = carritoArr.map(element => {
             if (element.id === libroId) {
-                element.cantidad++
-
-                /* const precio = carritoArr.reduce((acc, element) => acc + element.precio, 0) */
-                
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 1000,
+                    timerProgressBar: false,
+                    didOpen: (toast) => {
+                      toast.addEventListener('mouseenter', Swal.stopTimer)
+                      toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                  })
+                  
+                  Toast.fire({
+                    icon: 'info',
+                    title: 'Este producto ya está en el carrito!'
+                  })
             }
-
-            
         })
-
-       
-        console.log(cantidad);
         
     } else {
-
         const libroSeleccionado = libros.find((element) => element.id === libroId);
         carritoArr.push(libroSeleccionado); 
-
     }
      
     actualizarCarro();
@@ -94,6 +101,35 @@ function agregarAlCarro(libroId) {
     
 }
 
+function actualizarPrecio(inputValue, libroId) {
+
+    /* const precioCantidad = document.getElementById("precioCantidad"); */
+
+    if (inputValue >= 1) {
+        const carrActualizado = carritoArr.map(element => {
+            return {
+                id: element.id,
+                nombre: element.nombre,
+                precio: element.precio,
+                cantidad: element.cantidad
+            }
+        })
+
+        const libroSeleccionado = carrActualizado.find((element) => {
+            if (element.id == libroId) {
+                element.precio * inputValue;
+                element.cantidad * inputValue;
+            }
+        })
+        /* precioLibroFinal = precioCarr * inputValue;
+        precioCantidad.innerHTML = "$" + precioLibroFinal; */
+
+        console.log(carrActualizado);
+    }
+    
+    
+}
+
 
 
 function actualizarCarro() { 
@@ -102,18 +138,14 @@ function actualizarCarro() {
 
     for (const libro of carritoArr) {
 
-        
-
         let div = document.createElement("div");
         div.className = ("libroEnCarrito")
 
         div.innerHTML = `<a href=""><img class="libroPortadaEnCarrito" src=${libro.img}></a>
-                            <div>
-                                <h3 class="titulo-libro_en-carrito">${libro.titulo}</h3> 
-                                <h5 class="autor-libro_en-carrito">${libro.autor}</h5>  
-                                <p class="precio-libro_en-carrito">$${libro.precio}</p>
-                                <button class="btn-cantidad bg-light" id="btnMas">+</button><span>${libro.cantidad}</span><button class="btn-cantidad bg-light" id="btnMenos">-</button>
-                                <p>${libro.condicion} </p>
+                            <div> 
+                                <p id="precioCantidad" class="precio-libro_en-carrito">Precio: $${libro.precio}</p>
+                                <span id="precioCantidad">Cantidad:<input type="number" class="input-cantidad" id="inputCantidad" value="1"></span>
+                                <p>${libro.condicion}</p>
                             </div>
 
                         <button id="botonEliminar-${libro.id}" type="button" class="btn btn-light">ELIMINAR</button>`;
@@ -122,16 +154,33 @@ function actualizarCarro() {
 
         localStorage.setItem("carritoArr", JSON.stringify(carritoArr));
 
-        let botonEliminar = document.getElementById(`botonEliminar-${libro.id}`);
+        const botonEliminar = document.getElementById(`botonEliminar-${libro.id}`);
 
         botonEliminar.addEventListener("click", () => {
             eliminarDelCarro(libro.id)
         });
-          
+
+        const inputCantidad = document.getElementById("inputCantidad");
+        inputCantidad.addEventListener("change", cambiarCantidad(libro.id))
     }
 
     contadorCarrito.innerText = carritoArr.length;
     precioTotal.innerText = "Precio Final: " + carritoArr.reduce((acc, libro) => acc + libro.precio, 0);
+
+}
+
+
+function cambiarCantidad(libroId) {
+    
+    
+    const input = inputCantidad;
+    if (input.value <= 0) {
+        input.value = 1;
+    }
+
+    actualizarPrecio(input.value, libroId)
+
+    console.log("cambio");
 
 }
 
@@ -213,6 +262,7 @@ const carritoContainer = document.getElementById("carrito");
 const librosRecomendados = document.getElementById("librosRecomendados");
 const contadorCarrito = document.getElementById("contadorCarrito");
 const precioTotal = document.getElementById("precioTotal");
+
 
 
 let carritoArr = [];
