@@ -101,37 +101,6 @@ function agregarAlCarro(libroId) {
     
 }
 
-function actualizarPrecio(inputValue, libroId) {
-
-    /* const precioCantidad = document.getElementById("precioCantidad"); */
-
-    if (inputValue >= 1) {
-        const carrActualizado = carritoArr.map(element => {
-            return {
-                id: element.id,
-                nombre: element.nombre,
-                precio: element.precio,
-                cantidad: element.cantidad
-            }
-        })
-
-        const libroSeleccionado = carrActualizado.find((element) => {
-            if (element.id == libroId) {
-                element.precio * inputValue;
-                element.cantidad * inputValue;
-            }
-        })
-        /* precioLibroFinal = precioCarr * inputValue;
-        precioCantidad.innerHTML = "$" + precioLibroFinal; */
-
-        console.log(carrActualizado);
-    }
-    
-    
-}
-
-
-
 function actualizarCarro() { 
 
     carritoContainer.innerHTML = "";
@@ -142,10 +111,10 @@ function actualizarCarro() {
         div.className = ("libroEnCarrito")
 
         div.innerHTML = `<a href=""><img class="libroPortadaEnCarrito" src=${libro.img}></a>
-                            <div> 
-                                <p id="precioCantidad" class="precio-libro_en-carrito">Precio: $${libro.precio}</p>
-                                <span id="precioCantidad">Cantidad:<input type="number" class="input-cantidad" id="inputCantidad" value="1"></span>
-                                <p>${libro.condicion}</p>
+                            <div>  
+                                <p class="precio-libro_en-carrito">Precio: $${libro.precio}</p>
+                                <span>Cantidad: <button class="btn-cantidad bg-light" id="btnMas-${libro.id}">+</button>${libro.cantidad}<button class="btn-cantidad bg-light" id="btnMenos-${libro.id}">-</button></span>
+                                <p>${libro.condicion} </p>
                             </div>
 
                         <button id="botonEliminar-${libro.id}" type="button" class="btn btn-light">ELIMINAR</button>`;
@@ -155,33 +124,62 @@ function actualizarCarro() {
         localStorage.setItem("carritoArr", JSON.stringify(carritoArr));
 
         const botonEliminar = document.getElementById(`botonEliminar-${libro.id}`);
-
         botonEliminar.addEventListener("click", () => {
             eliminarDelCarro(libro.id)
         });
-
-        const inputCantidad = document.getElementById("inputCantidad");
-        inputCantidad.addEventListener("change", cambiarCantidad(libro.id))
+        const btnMas = document.getElementById(`btnMas-${libro.id}`);
+        btnMas.addEventListener("click", () => {
+            aumentarCantidad(libro.id)
+        });
+        const btnMenos = document.getElementById(`btnMenos-${libro.id}`);
+        btnMenos.addEventListener("click", () => {
+            disminuirCantidad(libro.id)
+        })
     }
 
     contadorCarrito.innerText = carritoArr.length;
-    precioTotal.innerText = "Precio Final: " + carritoArr.reduce((acc, libro) => acc + libro.precio, 0);
+    precioTotal.innerText = "Precio Final: " + carritoArr.reduce((acc, libro) => acc + libro.precio * libro.cantidad, 0);
 
 }
 
+function aumentarCantidad(libroId) {
+    console.log("aumenta el libro" + libroId);
+    const libroSeleccionado = carritoArr.find(element => {
+        if (element.id == libroId) {
+            return {
+                id: element.id,
+                titulo: element.titulo,
+                cantidad: element.cantidad++,
+                precio: element.precio
+            }
+        } 
+    })
 
-function cambiarCantidad(libroId) {
-    
-    
-    const input = inputCantidad;
-    if (input.value <= 0) {
-        input.value = 1;
+    actualizarCarro()
+
+    console.log(libroSeleccionado);
+}
+
+function disminuirCantidad(libroId) {
+    console.log("disminuye el libro" + libroId);
+    const libroSeleccionado = carritoArr.find(element => {
+        if (element.id == libroId) {
+            return {
+                id: element.id,
+                titulo: element.titulo,
+                cantidad: element.cantidad--,
+                precio: element.precio
+            }
+        }  
+    })
+
+    if (libroSeleccionado.cantidad <= 0) {
+        libroSeleccionado.cantidad = 1;
     }
+    
+    actualizarCarro()
 
-    actualizarPrecio(input.value, libroId)
-
-    console.log("cambio");
-
+    console.log(libroSeleccionado);
 }
 
 
