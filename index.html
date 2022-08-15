@@ -23,7 +23,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
 
-    <title>Proyecto js</title>
+    <!-- Link favicon -->
+    <link rel="shortcut icon" href="img/iconos/feather.svg" type="image/x-icon">
+
+    <title>Librería Nómadas - Home</title>
 </head>
 <body>
 
@@ -40,18 +43,22 @@
             </div>
 
             
-            <span class="search-tool">
-                <input class="st-input" type="text" name="" placeholder="Buscar por autor, título, ISBN... " id="#">
-                   
-                <button class="st-boton">
-                    <a  href=""><img src="img/iconos/search.svg" alt=""></a>
-                </button>
-            </span>
+            <div class="buscador">
+                <span >
+                    <input class="buscador-input" type="text" placeholder="Buscar por autor, título, ISBN... " id="buscadorInput">
+                        
+                    <button class="buscador-boton">
+                        <a  href=""><img src="img/iconos/search.svg" alt=""></a>
+                    </button>
+                </span>
+
+                <div id="buscadorContainer"></div>
+
+            </div>
 
             <div>
                 <a href=""><img src="img/iconos/cuenta.svg" alt=""></a>
-                <a href="" id="registrarseBoton" class="links">MI CUENTA</a>
-                
+                <a href="" id="registrarseBoton" class="titulo-mi-cuenta">MI CUENTA</a>
             </div>
 
             <div class="carrito">
@@ -84,11 +91,23 @@
 
         <nav class="nav-wrapper">
             <ul class="nav-container">
-                <li class="nav-items"><a class="nav-items" href="">CATÁLOGO</a></li>
-                <li class="nav-items"><a class="nav-items" href="">NOVEDADES</a></li>
-                <li class="nav-items"><a class="nav-items" href="">RECOMENDADOS</a></li>
-                <li class="nav-items"><a class="nav-items" href="">MÁS VENDIDOS</a></li>
-                <li class="nav-items"><a class="nav-items" href="">BLOG</a></li>
+                <li class="nav-li"><a class="nav-links" href="">INICIO</a></li>
+                <li class="nav-li"><a class="nav-links" href="/pages/catalago.html">CATÁLOGO</a>
+                    <ul class="nav-container-2">
+                        <li class="nav-li-2"><a href="#"  class="nav-links-2">AUTOAYUDA Y DESARROLLO PERSONAL</a></li>
+                        <li class="nav-li-2"><a href="#"  class="nav-links-2">BIOGRAFÍAS</a></li>
+                        <li class="nav-li-2"><a href="#"  class="nav-links-2">CINE Y FOTOGRAFÍA</a></li>
+                        <li class="nav-li-2"><a href="#"  class="nav-links-2">CLÁSICOS</a></li>
+                        <li class="nav-li-2"><a href="#"  class="nav-links-2">CUENTOS</a></li>
+                        <li class="nav-li-2"><a href="#"  class="nav-links-2">HISTORIA</a></li>
+                        <li class="nav-li-2"><a href="#"  class="nav-links-2">MARKETING</a></li>
+                        <li class="nav-li-2"><a href="#"  class="nav-links-2">MÚSICA</a></li>
+                        <li class="nav-li-2"><a href="#"  class="nav-links-2">POESÍA</a></li>
+                    </ul>
+                </li>
+                <li class="nav-li"><a class="nav-links" href="/pages/novedades.html">NOVEDADES</a></li>
+                <li class="nav-li"><a class="nav-links" href="/pages/recomendados.html">RECOMENDADOS</a></li>
+                <li class="nav-li"><a class="nav-links" href="/pages/mas-vendidos.html">MÁS VENDIDOS</a></li>
             </ul>
         </nav>
     </header>
@@ -101,20 +120,36 @@
         
 
 
-        <section id="s2-index">
-
-            <div class="lineas"></div>
+        <section id="secciones-main">
 
             <h6 class="titulos-secciones">LIBROS RECOMENDADOS</h6>
-
-            <div class="lineas"></div>
-
             <div id="librosRecomendados" class="libros-wrapper"></div>
 
+        </section>
+            
+        <section id="secciones-main">
+            <h6 class="titulos-secciones">NOVEDADES</h6>
+            <div id="novedades" class="libros-wrapper"></div>
+        </section>
+
+
+        <section id="secciones-main">
+            <h6 class="titulos-secciones">MÁS VENDIDOS</h6>
+            <div id="masVendidos" class="libros-wrapper"></div>
+        </section>
+
+
+        <section id="secciones-main">
+            <h6 class="titulos-secciones">OFERTAS</h6>
+            <div id="ofertas" class="libros-wrapper"></div>
         </section>
 
         
     </main>
+
+    <footer>
+        
+    </footer>
 
     
 

@@ -63,5 +63,73 @@
         "cantidad": 1, 
         "condicion": "Nuevo", 
         "img": "../img/libros-portadas/portada-la-odisea.png"
+    },
+
+    {
+        "id": 6,
+        "ISBN": "9781500294366",
+        "titulo": "CUENTOS DE AMOR DE LOCURA Y DE MUERTE",
+        "autor": "HORACIO QUIROGA",
+        "precio": 230,
+        "cantidad": 1,
+        "condicion": "Nuevo",
+        "img": "../img/libros-portadas/portada-cuentos-hq.jpg"
+    },
+
+    {
+        "id": 7,
+        "ISBN": "9789871228683",
+        "titulo": "LA MUJER DESNUDA",
+        "autor": "ARMONÍA SOMERS",
+        "precio": 600,
+        "cantidad": 1,
+        "condicion": "Usado",
+        "img": "../img/libros-portadas/portada-la-mujer-desnuda.webp"
+    },
+
+    {
+        "id": 8, 
+        "ISBN": "9788483933053",
+        "titulo": "CUENTOS COMPLETOS",
+        "autor": "ARMONÍA SOMERS",
+        "precio": 1425,
+        "cantidad": 1,
+        "condicion": "Nuevo",
+        "img": "../img/libros-portadas/portada-cuentos-as.jpg"
+    },
+
+    {
+        "id": 9,
+        "ISBN": "9788496136953",
+        "titulo": "LA TIERRA PURPÚREA",
+        "autor": "WILLIAM H. HUDSON",
+        "precio": 750,
+        "cantidad": 1,
+        "condicion": "Nuevo",
+        "img": "../img/libros-portadas/portada-tierra-purpurea.jpg"
+    },
+
+    {
+        "id": 10,
+        "ISBN": "9781556591990",
+        "titulo": "LOS HERALDOS NEGROS",
+        "autor": "CÉSAR VALLEJO",
+        "precio": 460,
+        "cantidad": 1,
+        "condicion": "Usado",
+        "img":"../img/libros-portadas/portada-heraldos-negros.png"
+    },
+
+    {
+        "id": 11,
+        "ISBN": "9788437604572",
+        "titulo": "RAYUELA",
+        "autor": "JULIO CORTÁZAR",
+        "precio": 1090,
+        "cantidad": 1,
+        "condicion": "Nuevo",
+        "img": "../img/libros-portadas/portada-rayuela.jpg"
+        
     }
+
 ]

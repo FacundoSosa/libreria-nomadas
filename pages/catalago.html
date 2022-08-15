@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- Link a mi css -->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <!-- Link a mi scss -->
+    <link rel="stylesheet" href="../scss/styles.scss">
+
+    <!-- Link a mis fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Link favicon -->
+    <link rel="shortcut icon" href="../img/iconos/feather.svg" type="image/x-icon">
+    
+    <title>Librería Nómadas - Catálogo</title>
+</head>
+<body>
+    <header id="header">
+
+        <div class="header-container-1">
+            <div class="logo">
+                <a href=""><img src="../img/iconos/feather.svg" alt="logo.svg"></a>
+                
+                <div class="header-container-2">
+                    <h1 class="titulo-header">LIBRERÍA NÓMADAS</h1>
+                    <p>VENDÉS, COMPRÁS Y CANJEÁS</p>
+                </div>
+            </div>
+
+            
+            <span class="search-tool">
+                <input class="st-input" type="text" name="" placeholder="Buscar por autor, título, ISBN... " id="#">
+                   
+                <button class="st-boton">
+                    <a  href=""><img src="../img/iconos/search.svg" alt=""></a>
+                </button>
+            </span>
+
+            <div>
+                <a href=""><img src="../img/iconos/cuenta.svg" alt=""></a>
+                <a href="" id="registrarseBoton" class="links">MI CUENTA</a>
+                
+            </div>
+
+            <div class="carrito">
+                
+                <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><img src="../img/iconos/bag.svg" alt=""></button>
+
+                <span id="contadorCarrito">0</span>
+
+                <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">AQUÍ ESTÁN TUS COMPRAS</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+
+                    <div class="offcanvas-body container-ofcanvas" >
+                        <div id="carrito">
+                            <p>Todavía no hay nada aquí</p>
+                        </div>
+                        
+                        <div>
+                            <p id="precioTotal"></p>
+                            <button type="button" class="btn btn-light" id="botonFinalizarCompra">Finalizar compra</button>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+
+        <nav class="nav-wrapper">
+            <ul class="nav-container">
+                <li class="nav-items"><a class="nav-items" href="../index.html">INICIO</a></li>
+                <li class="nav-items"><a class="nav-items" href="../pages/catalago.html">CATÁLOGO</a></li>
+                <li class="nav-items"><a class="nav-items" href="../pages/novedades.html">NOVEDADES</a></li>
+                <li class="nav-items"><a class="nav-items" href="../pages/recomendados.html">RECOMENDADOS</a></li>
+                <li class="nav-items"><a class="nav-items" href="../pages/mas-vendidos.html">MÁS VENDIDOS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../index.js"></script>
+</body>
+</html>

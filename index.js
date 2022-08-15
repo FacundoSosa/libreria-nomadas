@@ -1,34 +1,9 @@
 
-/* ============= FUNCIONES ================ */
+/* ======================== FUNCIONES ============================ */
 
 
 
-function validarFormulario (e) {
-        e.preventDefault();
-      
-}
-
-
-
-function respuestaRegistrarse() {
-    
-    let miCuenta = document.getElementById("miCuenta");
-
-    let formularioContainer = document.createElement("div")
-
-    formularioContainer.innerHTML = `<h5>REGISTRARSE</h5>
-    
-                                    <form id="miCuentaForm">
-                                        <input type="text" placeholder="Ingrese su nombre" id="nombreIngresar">
-                                        <input type="email" placeholder="E-mail" id="emailIngresar">
-                                        <input type="password" placeholder="Contraseña" id="contrasenaIngresar">
-                                        <input type="submit" value="REGISTRARSE">
-                                    </form>
-                                    
-                                    <input type="button" value="X" id="botonCerrar">`;
-
-    miCuenta.append(formularioContainer)
-}
+//FUNCIONES DE MI CUENTA
 
 
 
@@ -36,7 +11,10 @@ function respuestaRegistrarse() {
 
 
 
-function agregarAlCarro(libroId) {
+
+// FUNCIONES DEL CARRITO DE COMRPAS
+
+function agregarAlCarro(libroId, libros) {
     
     const existe = carritoArr.some((element) => element.id === libroId);
         
@@ -138,7 +116,7 @@ function actualizarCarro() {
     }
 
     contadorCarrito.innerText = carritoArr.length;
-    precioTotal.innerText = "Precio Final: " + carritoArr.reduce((acc, libro) => acc + libro.precio * libro.cantidad, 0);
+    precioTotal.innerText = "IMPORTE FINAL: $" + carritoArr.reduce((acc, libro) => acc + libro.precio * libro.cantidad, 0);
 
 }
 
@@ -157,7 +135,6 @@ function aumentarCantidad(libroId) {
 
     actualizarCarro()
 
-    console.log(libroSeleccionado);
 }
 
 function disminuirCantidad(libroId) {
@@ -179,7 +156,6 @@ function disminuirCantidad(libroId) {
     
     actualizarCarro()
 
-    console.log(libroSeleccionado);
 }
 
 
@@ -214,56 +190,102 @@ function finalizarCompra() {
 
 
 
-const libros = [
-    {id: 0, titulo: 'CUENTOS COMPLETOS', autor: 'EDGAR ALLAN POE', precio: 1200, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-eap.jpg"},
-    {id: 1, titulo: 'EL ALEPH', autor: 'JORGE LUIS BORGES', precio: 110, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-el-aleph.png"},
-    {id: 2, titulo: 'FINAL DEL JUEGO', autor: 'JULIO CORTÁZAR', precio: 460, cantidad: 1, condicion: "Usado", img: "img/libros-portadas/portada-final-del-juego.jpg"},
-    {id: 3, titulo: 'HISTORIAS DE CRONOPIOS Y DE FAMAS', autor: 'JULIO CORTÁZAR', precio: 320, cantidad: 1, condicion: "Usado", img: "img/libros-portadas/portada-hcyf.jpg"},
-    {id: 4, titulo: 'LA ILIADA', autor: 'HOMERO', precio: 920, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-la-iliada.jpg"},
-    {id: 5, titulo: 'LA ODISEA', autor: 'HOMERO', precio: 800, cantidad: 1, condicion: "Nuevo", img: "img/libros-portadas/portada-la-odisea.png"},
-];
-
 
 /* ============== DOM Y EVENTOS ================= */
 
+let librosRecomendados = [];
+let novedades = [];
+let masVendidos = [];
+let ofertas = [];
+let catalogo = [];
 
-fetch("/data.json")
-.then((response) => response.json())
-.then(data => {
+const pedirLibros = async () => {
+    const response = await fetch("http://127.0.0.1:5501/data.json");
+
+    const data = await response.json();
     
     data.forEach(libro => {
-        const div = document.createElement("div");
-        div.className = "libros-container";
-
-        div.innerHTML = `<a href=""><img class="libros-portadas" src=${libro.img}></a>
-            <h3 class="titulos-libros">${libro.titulo}</h3>   
-            <p>$${libro.precio}</p> 
-            <button id="botonAdd-${libro.id}" type="button" class="btn btn-outline-dark">AGREGAR</button>`;
-
-        librosRecomendados.append(div)
-
-        let botonAdd = document.getElementById(`botonAdd-${libro.id}`);
-
-        botonAdd.addEventListener("click", () => {
-            agregarAlCarro(libro.id)
-        })
+        catalogo.push(libro)
     });
-});
+    
+    for (let i = 0; i < 6; i++) {
+        librosRecomendados.push(data[i]);
+        librosRecomendadosContainer.innerHTML = "";
+        crearLibros(librosRecomendados, librosRecomendadosContainer);
+    }
+
+    for (let i = 6; i < 12; i++) {
+        novedades.push(data[i]);
+        novedadesContainer.innerHTML = "";
+        crearLibros(novedades, novedadesContainer);
+    }
+
+    /* for (let i = 12; i < 18; i++) {
+        masVendidos.push(data[i]);
+        masVendidosContainer.innerHTML = "";
+        crearLibros(masVendidos, masVendidosContainer)
+    }
+
+    for (let i = 18; i < 24; ) {
+        ofertas.push(data[i]);
+        ofertasContainer.innerHTML = "";
+        crearLibros(ofertas, ofertasContainer)
+    } */
+   
+}
+
+
+pedirLibros()
+
+function crearLibros(libros, librosContainer){
+
+    for (const libro of libros) {
+    
+        const div = document.createElement("div");
+            div.className = "libros-container";
+    
+            div.innerHTML = `<a href=""><img class="libros-portadas" src=${libro.img}></a>
+                <h3 class="titulos-libros">${libro.titulo}</h3>   
+                <p>$${libro.precio}</p> 
+                <button id="botonAdd-${libro.id}" type="button" class="btn btn-outline-dark">AGREGAR</button>`;
+
+                librosContainer.append(div)
+            
+                let botonAdd = document.getElementById(`botonAdd-${libro.id}`);
+    
+                botonAdd.addEventListener("click", () => {
+                    agregarAlCarro(libro.id, libros)
+                });    
+    }
+
+    
+}
 
 
 
+
+    
 
 const botonFinalizarCompra = document.getElementById("botonFinalizarCompra");
 botonFinalizarCompra.addEventListener("click", finalizarCompra);
 
-const carritoContainer = document.getElementById("carrito");
-const librosRecomendados = document.getElementById("librosRecomendados");
 const contadorCarrito = document.getElementById("contadorCarrito");
 const precioTotal = document.getElementById("precioTotal");
 
 
+//CONTAINERS 
+
+const carritoContainer = document.getElementById("carrito");
+const librosRecomendadosContainer = document.getElementById("librosRecomendados");
+const novedadesContainer = document.getElementById("novedades");
+const masVendidosContainer = document.getElementById("masVendidos");
+const ofertasContainer = document.getElementById("ofertas");
+const buscadorContainer = document.getElementById("buscadorContainer");
+
+
 
 let carritoArr = [];
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -274,39 +296,48 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+//BUSCADOR
 
+const buscadorInput = document.getElementById("buscadorInput");
 
+buscadorInput.addEventListener("input", buscarLibro)
 
+function buscarLibro() {
 
+    const resultado =  catalogo.filter(element =>  element.titulo.includes(buscadorInput.value.toUpperCase()));
 
-/* ============ REGISTRARSE ============ */
+    buscadorContainer.innerHTML = "";
+   
+    for (const libro of resultado) {
+        const div = document.createElement("div");
+        div.className = "buscador-resultado";
 
+        div.innerHTML = `<div class="buscador-container-2">
+                            <img class="portada-buscador" src="${libro.img}" alt="portada.jpg">
+                                <div class="buscador-container-3">
+                                    <h3 class="titulo-buscador">${libro.titulo}</h3>
+                                    <p class="texto-buscador">$${libro.precio}</p>
+                                </div>
+                        </div>
+                            <button id="botonAdd-${libro.id}" type="button" class="btn-agregar-buscador btn btn-outline-dark btn-sm">AGREGAR</button>`;
 
+        buscadorContainer.append(div);
 
-let registrarse = document.getElementById("registrarseBoton")
-registrarse.addEventListener("click", respuestaRegistrarse)
-
-
-
-class Usuario {
-    constructor(nombre, email, contraseña){
-        this.nombre = nombre;
-        this.email = email;
-        this.contraseña = contraseña;
+        let botonAdd = document.getElementById(`botonAdd-${libro.id}`);
+    
+            botonAdd.addEventListener("click", () => {
+                agregarAlCarro(libro.id, resultado)
+            });
+        
     }
+
+    if (buscadorInput.value.length < 1) {
+        buscadorContainer.innerHTML = "";
+    }
+
 }
+    
 
-const usuarios = [];
-
-let nombreIngresado = document.getElementById("nombreIngresar");
-let emailIngresado = document.getElementById("emailIngresar");
-let contraseñaIngresada = document.getElementById("contrasenaIngresar");
-
-usuarios.push(new Usuario(nombreIngresado, emailIngresado, contraseñaIngresada));
-
-let miCuentaForm = document.getElementById("miCuentaForm")
-
-miCuenta.addEventListener("submit", validarFormulario)
 
 
 

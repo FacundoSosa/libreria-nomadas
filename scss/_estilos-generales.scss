@@ -11,7 +11,14 @@ body {
 }
 
 
-.links {
+a {
     text-decoration: none;
-    color: $color-2;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    padding: 0%;
 }
