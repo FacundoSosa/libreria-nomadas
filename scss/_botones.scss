@@ -40,6 +40,30 @@
 }
 
 
+.input-footer {
+    border-style: none;
+    outline: none;
+    background-color: $color-1;
+
+    height: 40px;
+    width: 280px;
+
+    padding-left: 8px;
+    margin: 12px 0px;
+}
+
+.boton-footer {
+    border-style: none;
+    line-height: 40px;
+
+    margin: 0%;
+    padding: 0px 16px;
+    translate: 0px -1px;
+    background-color: $color-2;
+    color: $color-4;
+}
+
+
 
 
 

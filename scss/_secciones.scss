@@ -193,7 +193,7 @@
 
 
 
-
+//HOME
 
 
 
@@ -256,3 +256,26 @@
     flex-direction: column;
     align-content: space-between;
 }
+
+
+
+// FOOTER
+
+
+.footer-main-wrapper {
+    background-color: $color-4;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    padding: 80px;
+}
+
+.footer-wrapper-containers {
+    display: flex;
+    flex-direction: column;
+}
+
+
+

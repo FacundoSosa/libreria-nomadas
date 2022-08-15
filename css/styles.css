@@ -168,6 +168,17 @@
   flex-direction: column;
   align-content: space-between; }
 
+.footer-main-wrapper {
+  background-color: #EADCA6;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 80px; }
+
+.footer-wrapper-containers {
+  display: flex;
+  flex-direction: column; }
+
 /* =========== ESTILOS GENERALES =========== */
 body {
   margin: 0%;
@@ -183,6 +194,9 @@ li {
 
 ul {
   padding: 0%; }
+
+p {
+  margin: 0%; }
 
 .titulo-header {
   margin: 0%; }
@@ -217,10 +231,33 @@ ul {
 .titulo-libro_en-carrito {
   font-size: 16px; }
 
+.footer-titulo-principal {
+  text-align: center;
+  background-color: #C36A2D;
+  color: #EADCA6;
+  margin: 0%;
+  padding: 16px 0px;
+  font-size: 32px; }
+
+.titulos-footer {
+  font-weight: 600;
+  color: #C36A2D;
+  font-size: 24px; }
+
 /* ========== TEXTOS ============ */
 .textos-home {
   font-size: 40px;
   color: #FBFBFB; }
+
+.textos-footer {
+  color: #C36A2D; }
+  .textos-footer:hover {
+    color: #C36A2D; }
+
+.copyright {
+  background-color: #C36A2D;
+  padding: 16px;
+  color: #EADCA6; }
 
 /* ============== BOTONES ============== */
 .buscador-boton {
@@ -246,3 +283,21 @@ ul {
   line-height: 8px;
   border-radius: 4px;
   font-size: 24px; }
+
+.input-footer {
+  border-style: none;
+  outline: none;
+  background-color: #FBFBFB;
+  height: 40px;
+  width: 280px;
+  padding-left: 8px;
+  margin: 12px 0px; }
+
+.boton-footer {
+  border-style: none;
+  line-height: 40px;
+  margin: 0%;
+  padding: 0px 16px;
+  translate: 0px -1px;
+  background-color: #C36A2D;
+  color: #EADCA6; }

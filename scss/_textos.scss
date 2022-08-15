@@ -5,3 +5,17 @@
     color: $color-1;
 }
 
+.textos-footer {
+    color: $color-2;
+
+    &:hover {
+        color: $color-2;
+    }
+}
+
+.copyright {
+    background-color: $color-2;
+    padding: 16px;
+
+    color: $color-4;
+}
