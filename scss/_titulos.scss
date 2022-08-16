@@ -43,10 +43,12 @@
 
 .titulos-libros-autor {
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 500;
     font-family: Roboto;
 
-    color: rgba(53, 52, 52, 0.57);
+    text-transform: capitalize;
+
+    color: rgba(97, 95, 95, 0.564);
 
     margin: 0%;
 }

@@ -195,7 +195,7 @@
         "precio": 520,
         "cantidad": 1,
         "condicion": "Nuevo",
-        "img": "https://github.com/facundososa676/js/blob/develop/img/libros-portadas/portada-agilmente.png"
+        "img": "../img/libros-portadas/portada-agilmente.png"
     },
 
     {
