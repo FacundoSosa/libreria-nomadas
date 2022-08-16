@@ -306,6 +306,12 @@ function buscarLibro() {
         element.ISBN.includes(buscadorInput.value.toUpperCase())
     );
 
+    /* resultado.some(element => 
+        element.titulo.includes(buscadorInput.value.toUpperCase()) ||
+        element.autor.includes(buscadorInput.value.toUpperCase()) || 
+        element.ISBN.includes(buscadorInput.value.toUpperCase())
+    ); */
+
     buscadorContainer.innerHTML = "";
    
     for (const libro of resultado) {
@@ -334,6 +340,17 @@ function buscarLibro() {
 
     if (buscadorInput.value.length < 1) {
         buscadorContainer.innerHTML = "";
+    }
+
+    if (resultado.length == 0) {
+        const div = document.createElement("div");
+        div.className = "buscador-resultado";
+
+        div.innerHTML = `<div class="buscador-container-2">
+                            <p>No se encontraron libros</p>
+                        </div>`;
+
+        buscadorContainer.append(div);
     }
 
 }
