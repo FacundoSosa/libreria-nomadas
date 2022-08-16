@@ -220,17 +220,12 @@ const pedirLibros = async () => {
         crearLibros(novedades, novedadesContainer);
     }
 
-    /* for (let i = 12; i < 18; i++) {
+    for (let i = 12; i < 18; i++) {
         masVendidos.push(data[i]);
         masVendidosContainer.innerHTML = "";
         crearLibros(masVendidos, masVendidosContainer)
     }
 
-    for (let i = 18; i < 24; ) {
-        ofertas.push(data[i]);
-        ofertasContainer.innerHTML = "";
-        crearLibros(ofertas, ofertasContainer)
-    } */
    
 }
 
@@ -246,8 +241,9 @@ function crearLibros(libros, librosContainer){
     
             div.innerHTML = `<a href=""><img class="libros-portadas" src=${libro.img}></a>
                 <h3 class="titulos-libros">${libro.titulo}</h3>   
+                <h3 class="titulos-libros-autor">${libro.autor}</h3>   
                 <p>$${libro.precio}</p> 
-                <button id="botonAdd-${libro.id}" type="button" class="btn btn-outline-dark">AGREGAR</button>`;
+                <button id="botonAdd-${libro.id}" type="button" class="btn btn-outline-dark btn-agregar">AGREGAR</button>`;
 
                 librosContainer.append(div)
             
@@ -304,7 +300,11 @@ buscadorInput.addEventListener("input", buscarLibro)
 
 function buscarLibro() {
 
-    const resultado =  catalogo.filter(element =>  element.titulo.includes(buscadorInput.value.toUpperCase()));
+    const resultado =  catalogo.filter(element => 
+        element.titulo.includes(buscadorInput.value.toUpperCase()) ||
+        element.autor.includes(buscadorInput.value.toUpperCase()) || 
+        element.ISBN.includes(buscadorInput.value.toUpperCase())
+    );
 
     buscadorContainer.innerHTML = "";
    
@@ -316,6 +316,7 @@ function buscarLibro() {
                             <img class="portada-buscador" src="${libro.img}" alt="portada.jpg">
                                 <div class="buscador-container-3">
                                     <h3 class="titulo-buscador">${libro.titulo}</h3>
+                                    <p class="texto-buscador">${libro.autor}</p>
                                     <p class="texto-buscador">$${libro.precio}</p>
                                 </div>
                         </div>

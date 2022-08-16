@@ -130,6 +130,83 @@
         "condicion": "Nuevo",
         "img": "../img/libros-portadas/portada-rayuela.jpg"
         
+    },
+
+    {
+        "id": 12,
+        "ISBN": "9780679760955",
+        "titulo": "LA TREGUA",
+        "autor": "MARIO BENEDETTI",
+        "precio": 520,
+        "cantidad": 1,
+        "condicion": "Usado",
+        "img": "../img/libros-portadas/portada-tregua.jpg"
+    },
+
+    {
+        "id": 13,
+        "ISBN": "9780374530716",
+        "titulo": "EL MUNDO DE SOFÍA",
+        "autor": "JOSTEIN GAARDER",
+        "precio": 890,
+        "cantidad": 1,
+        "condicion": "Usado",
+        "img": "../img/libros-portadas/portada-el-mundo-de-sofia.jpg"
+    },
+
+    {
+        "id": 14,
+        "ISBN": "9788435018654",
+        "titulo": "LA FILOSOFÍA PERENNE",
+        "autor": "ALDOUS HUXLEY",
+        "precio": 1190,
+        "cantidad": 1,
+        "condicion": "Usado",
+        "img": "../img/libros-portadas/portada-filosofia-perenne.jpg"
+    },
+
+    {
+        "id": 15,
+        "ISBN": "9788498383430",
+        "titulo": "HARRY POTTER Y EL PRISIONERO DE AZKABAN",
+        "autor": "J.K. ROWLING",
+        "precio": 2490,
+        "cantidad": 1,
+        "condicion": "Nuevo",
+        "img": "../img/libros-portadas/portada-hp.jpg"
+    },
+
+    {
+        "id": 16,
+        "ISBN": "9788420674278",
+        "titulo": "EL CINE SEGÚN HITCHCOCK",
+        "autor": "FRANÇOIS TRUFFAUT",
+        "precio": 1050,
+        "cantidad": 1,
+        "condicion": "Usado",
+        "img": "../img/libros-portadas/portada-hitchcock.webp"
+    },
+
+    {
+        "id": 17,
+        "ISBN": "9789877251715",
+        "titulo": "ÁGILMENTE",
+        "autor": "ETANISLAO BACHRACH",
+        "precio": 520,
+        "cantidad": 1,
+        "condicion": "Nuevo",
+        "img": "../img/libros-portadas/portada-agilmente.png"
+    },
+
+    {
+        "id": 18,
+        "ISBN": "9780671579593",
+        "titulo": "COMO GANAR AMIGOS E INFLUIR SOBRE LAS PERSONAS",
+        "autor": "DALE CARNEGIE",
+        "precio": 1200,
+        "cantidad": 1,
+        "condicion": "Usado",
+        "img": "../img/libros-portadas/portada-dale-carnegie.jpg"
     }
 
 ]

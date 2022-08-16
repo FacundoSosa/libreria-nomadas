@@ -7,6 +7,7 @@
 .titulo-buscador {
     font-size: 16px;
     font-weight: 600;
+    color: $color-5;
 }
 
 .titulo-mi-cuenta {
@@ -20,7 +21,7 @@
 
 .titulos-secciones {
     margin-top: 0%;
-    margin-bottom: 120px;
+    margin-bottom: 80px;
 
     font-size: 48px;
 }
@@ -32,12 +33,22 @@
 
 .titulos-libros {
     font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    text-align: center;
+    font-weight: 600;
 
     text-decoration: none;
     color: #000;
+
+    margin: 0%;
+}
+
+.titulos-libros-autor {
+    font-size: 12px;
+    font-weight: 400;
+    font-family: Roboto;
+
+    color: rgba(53, 52, 52, 0.57);
+
+    margin: 0%;
 }
 
 
@@ -50,7 +61,8 @@
     background-color: $color-2;
     color: $color-4;
 
-    margin: 0%;
+    margin-top: 160px;
+    margin-bottom: 0%;
     padding: 16px 0px;
 
     font-size: 32px;

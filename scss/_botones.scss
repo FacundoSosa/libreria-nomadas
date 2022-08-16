@@ -19,6 +19,7 @@
     border-style: none;
     outline: none;
     background-color: $color-1;
+    color: $color-5;
 
     width: 514px;
     height: 32px;
@@ -26,7 +27,9 @@
     padding-left: 8px;
 }
 
-
+.btn-agregar {
+    align-self: flex-end;
+}
 
 .btn-cantidad {
     padding: 8px;
@@ -61,6 +64,10 @@
     translate: 0px -1px;
     background-color: $color-2;
     color: $color-4;
+
+    &:hover {
+        background-color: $color-5;
+    }
 }
 
 
