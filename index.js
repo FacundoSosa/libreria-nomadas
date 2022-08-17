@@ -3,7 +3,7 @@
 //PETICIÓN DE DATOS HECHA CON FETCH
 
 const pedirLibros = async () => {
-    const response = await fetch("http://127.0.0.1:5501/data.json")
+    const response = await fetch("http://127.0.0.1:5501/data.json", )
 
     const data = await response.json();
     
@@ -127,8 +127,8 @@ function agregarAlCarro(libroId, libros) {
     
     const existe = carritoArr.some((element) => element.id === libroId);
         
-    existe ?
-        libros = carritoArr.map(element => {
+    if (existe) {
+        const libros = carritoArr.map(element => {
             if (element.id === libroId) {
                 const Toast = Swal.mixin({
                     toast: true,
@@ -147,9 +147,29 @@ function agregarAlCarro(libroId, libros) {
                     title: 'Este producto ya está en el carrito!'
                   })
             }
-        }) : libroSeleccionado = libros.find((element) => element.id === libroId);
-             carritoArr.push(libroSeleccionado);
-            
+        })
+    } else {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: false,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: 'Producto agregado al carrito!'
+          })
+
+        const libroSeleccionado = libros.find((element) => element.id === libroId);
+        carritoArr.push(libroSeleccionado);
+    }
+          
     actualizarCarro(); 
  }
 

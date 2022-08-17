@@ -7,10 +7,9 @@
 #header {
     display: grid;
     grid-template-rows: max-content;
-    grid-auto-flow: dense;
 }
 
-.header-container-1 {
+.header-main-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -32,7 +31,7 @@
     padding-left: 5px;
 }
 
-.header-container-2 {
+.header-container-titulos {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,14 +111,23 @@
 
 .libroEnCarrito {
     display: flex;
-    flex-direction: col;
 
     justify-content: space-between;
     align-items: center;
 
     margin-bottom: 24px;
+    padding-top: 16px;
 
-    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    border-top: solid 1px $color-3;
+}
+
+.precio-total-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-top: solid 1px $color-3;
+    padding-top: 16px;
 }
 
 
@@ -141,9 +149,6 @@
     padding: 0%;
 
     height: 48px;
-
-    
-
 }
 
 .nav-links {

@@ -1,17 +1,16 @@
 /* =========== SECCIONES ============ */
 #header {
   display: grid;
-  grid-template-rows: max-content;
-  grid-auto-flow: dense; }
+  grid-template-rows: max-content; }
 
-.header-container-1 {
+.header-main-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   color: #C36A2D;
   padding: 20px 40px; }
-  .header-container-1 .logo {
+  .header-main-wrapper .logo {
     display: flex;
     flex-direction: row; }
 
@@ -20,7 +19,7 @@
   color: #C36A2D;
   padding-left: 5px; }
 
-.header-container-2 {
+.header-container-titulos {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,11 +72,18 @@
 
 .libroEnCarrito {
   display: flex;
-  flex-direction: col;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
-  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px; }
+  padding-top: 16px;
+  border-top: solid 1px #eceff2; }
+
+.precio-total-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: solid 1px #eceff2;
+  padding-top: 16px; }
 
 .nav-wrapper {
   height: 48px;
@@ -267,6 +273,10 @@ p {
   font-size: 24px; }
 
 /* ========== TEXTOS ============ */
+.texto-precio-total {
+  font-size: 20px;
+  font-weight: 500; }
+
 .textos-home {
   font-size: 40px;
   color: #FBFBFB; }
@@ -329,25 +339,3 @@ p {
   color: #EADCA6; }
   .boton-footer:hover {
     background-color: #d37333; }
-
-/* =================== MEDIA QUERIES =================== */
-@media screen and (min-width: 1024px) {
-  #header {
-    display: grid;
-    grid-template-rows: max-content; }
-  .header-main-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    color: #C36A2D;
-    padding: 20px 40px; }
-    .header-main-wrapper .logo {
-      display: flex;
-      flex-direction: row; }
-    .header-main-wrapper .header-container-titulos {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-left: 20px; } }
