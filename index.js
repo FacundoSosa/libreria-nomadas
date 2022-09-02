@@ -187,8 +187,8 @@ function agregarAlCarro(libroId, libros) {
             if (result.isConfirmed) {
                 const libroSeleccionado = carritoArr.find((element) => element.id === libroId);
                 const indice = carritoArr.indexOf(libroSeleccionado);
-                    carritoArr.splice(indice, 1);
-                    actualizarCarro();
+                carritoArr.splice(indice, 1);
+                actualizarCarro();
                     Swal.fire(
                         'Eliminado!',
                         'Has retirado tu libro del carrito',
@@ -249,21 +249,25 @@ function actualizarCarro() {
 }
 
 function finalizarCompra() {
-    carritoArr.length > 0 ?
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Gracias por comprar',
-            showConfirmButton: true
-          })
-     : 
+   if (carritoArr.length > 0) {
+    carritoArr.length = 0;
+    localStorage.clear();
+    actualizarCarro();
+
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Gracias por comprar',
+        showConfirmButton: true
+      })
+   } else {
         Swal.fire({
             position: 'center',
             icon: 'info',
             title: 'Agrega algo al carrito antes',
             showConfirmButton: true
-          })
-    
+        })
+   }
 }
 
 
