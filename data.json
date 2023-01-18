@@ -18,7 +18,7 @@
         "precio": 110, 
         "cantidad": 1, 
         "condicion": "Nuevo", 
-        "img": "../img/libros-portadas/portada-el-aleph.png"
+        "img": "img/libros-portadas/portada-el-aleph.png"
     },
 
     {
@@ -29,7 +29,7 @@
         "precio": 460, 
         "cantidad": 1, 
         "condicion": "Usado", 
-        "img": "../img/libros-portadas/portada-final-del-juego.jpg"
+        "img": "img/libros-portadas/portada-final-del-juego.jpg"
     },
 
     {
@@ -40,7 +40,7 @@
         "precio": 320, 
         "cantidad": 1, 
         "condicion": "Usado", 
-        "img": "../img/libros-portadas/portada-hcyf.jpg"
+        "img": "img/libros-portadas/portada-hcyf.jpg"
     },
 
     {
@@ -51,7 +51,7 @@
         "precio": 920, 
         "cantidad": 1, 
         "condicion": "Nuevo", 
-        "img": "../img/libros-portadas/portada-la-iliada.jpg"
+        "img": "img/libros-portadas/portada-la-iliada.jpg"
     },
 
     {
@@ -62,7 +62,7 @@
         "precio": 800, 
         "cantidad": 1, 
         "condicion": "Nuevo", 
-        "img": "../img/libros-portadas/portada-la-odisea.png"
+        "img": "img/libros-portadas/portada-la-odisea.png"
     },
 
     {
@@ -73,7 +73,7 @@
         "precio": 230,
         "cantidad": 1,
         "condicion": "Nuevo",
-        "img": "../img/libros-portadas/portada-cuentos-hq.jpg"
+        "img": "img/libros-portadas/portada-cuentos-hq.jpg"
     },
 
     {
@@ -84,7 +84,7 @@
         "precio": 600,
         "cantidad": 1,
         "condicion": "Usado",
-        "img": "../img/libros-portadas/portada-la-mujer-desnuda.webp"
+        "img": "img/libros-portadas/portada-la-mujer-desnuda.webp"
     },
 
     {
@@ -95,7 +95,7 @@
         "precio": 1425,
         "cantidad": 1,
         "condicion": "Nuevo",
-        "img": "../img/libros-portadas/portada-cuentos-as.jpg"
+        "img": "img/libros-portadas/portada-cuentos-as.jpg"
     },
 
     {
@@ -106,7 +106,7 @@
         "precio": 750,
         "cantidad": 1,
         "condicion": "Nuevo",
-        "img": "../img/libros-portadas/portada-tierra-purpurea.jpg"
+        "img": "img/libros-portadas/portada-tierra-purpurea.jpg"
     },
 
     {
@@ -117,7 +117,7 @@
         "precio": 460,
         "cantidad": 1,
         "condicion": "Usado",
-        "img":"../img/libros-portadas/portada-heraldos-negros.png"
+        "img":"img/libros-portadas/portada-heraldos-negros.png"
     },
 
     {
@@ -128,7 +128,7 @@
         "precio": 1090,
         "cantidad": 1,
         "condicion": "Nuevo",
-        "img": "../img/libros-portadas/portada-rayuela.jpg"
+        "img": "img/libros-portadas/portada-rayuela.jpg"
         
     },
 
@@ -140,7 +140,7 @@
         "precio": 520,
         "cantidad": 1,
         "condicion": "Usado",
-        "img": "../img/libros-portadas/portada-tregua.jpg"
+        "img": "img/libros-portadas/portada-tregua.jpg"
     },
 
     {
@@ -151,7 +151,7 @@
         "precio": 890,
         "cantidad": 1,
         "condicion": "Usado",
-        "img": "../img/libros-portadas/portada-el-mundo-de-sofia.jpg"
+        "img": "img/libros-portadas/portada-el-mundo-de-sofia.jpg"
     },
 
     {
@@ -162,7 +162,7 @@
         "precio": 1190,
         "cantidad": 1,
         "condicion": "Usado",
-        "img": "../img/libros-portadas/portada-filosofia-perenne.jpg"
+        "img": "img/libros-portadas/portada-filosofia-perenne.jpg"
     },
 
     {
@@ -173,7 +173,7 @@
         "precio": 2490,
         "cantidad": 1,
         "condicion": "Nuevo",
-        "img": "../img/libros-portadas/portada-hp.jpg"
+        "img": "img/libros-portadas/portada-hp.jpg"
     },
 
     {
@@ -184,7 +184,7 @@
         "precio": 1050,
         "cantidad": 1,
         "condicion": "Usado",
-        "img": "../img/libros-portadas/portada-hitchcock.webp"
+        "img": "img/libros-portadas/portada-hitchcock.webp"
     },
 
     {
@@ -195,7 +195,7 @@
         "precio": 520,
         "cantidad": 1,
         "condicion": "Nuevo",
-        "img": "../img/libros-portadas/portada-agilmente.png"
+        "img": "img/libros-portadas/portada-agilmente.png"
     },
 
     {
@@ -206,7 +206,7 @@
         "precio": 1200,
         "cantidad": 1,
         "condicion": "Usado",
-        "img": "../img/libros-portadas/portada-dale-carnegie.jpg"
+        "img": "img/libros-portadas/portada-dale-carnegie.jpg"
     }
 
 ]
