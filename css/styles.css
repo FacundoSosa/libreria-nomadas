@@ -172,7 +172,6 @@
   display: grid;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 8px;
-  border: solid 1px #EADCA6;
   transition: all 250ms ease-in-out; }
   .libros-container:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; }
