@@ -3,13 +3,8 @@
 //PETICIÓN DE DATOS HECHA CON FETCH
 
 const pedirLibros = async () => {
-    const response = await fetch("http://127.0.0.1:5501/data.json", )
-
+    const response = await fetch("https://github.com/FacundoSosa/libreria-nomadas/blob/main/data.json")
     const data = await response.json();
-    
-    data.forEach(libro => {
-        catalogo.push(libro)
-    });
     
     //Recorridos del array traido desde el json para separar en categorías los libros
     for (let i = 0; i < 6; i++) {
